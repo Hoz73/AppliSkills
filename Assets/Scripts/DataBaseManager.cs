@@ -18,31 +18,24 @@ public class DataBaseManager : MonoBehaviour
     public string Password;
     public Text State;
     private MySqlConnection connection;
-    
-    // Start is called before the first frame update
 
 
-    void ConnectDB()
+    public void ConnectDB()
     {
         string con = "Server=" + Host +
                      ";DATABASE=" + DataBase + 
                      ";User ID=" + Username + 
                      ";Password=" + Password + 
                      ";Pooling=true;Charset=utf8;";
-        try {
+        try
+        {
             connection = new MySqlConnection(con);
             connection.Open();
             State.text = connection.State.ToString();
-            Debug.Log("try connection ");
-        }catch (IOException e) {
+        }catch (IOException e)
+        {
             State.text = e.ToString();
-            Debug.Log("catch connection ");
         }
-    }
-
-    void Update()
-    {
-        
     }
 
     void OnApplicationQuit()
@@ -52,20 +45,13 @@ public class DataBaseManager : MonoBehaviour
         {
             connection.Close();
         }
-            
-        
     }
     
-    
-
-    public void Register(TMP_InputField firstName, TMP_InputField lastName, TMP_InputField mail,
-                         TMP_InputField phone, TMP_InputField password)
+    public void Register(string firstName, string lastName, string mail, string phone, string password)
     {
         ConnectDB();
-        
-        Debug.Log("yes ");
-        String command = "INSERT INTO user VALUES(default','"+ firstName.text +"','" + lastName.text+ 
-                         "','" + mail.text +"','"+ phone.text +"','" +password.text +")";
+        String command =
+            "INSERT INTO `user`(`firstName`, `lastName`, `mail`, `phone`, `password`) VALUES ('"+firstName+"','"+lastName+"','"+mail+"','"+phone+"','"+password+"')";
         
         MySqlCommand cmd = new MySqlCommand(command, connection);
         try

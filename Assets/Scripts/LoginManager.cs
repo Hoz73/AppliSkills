@@ -23,7 +23,7 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private TMP_InputField signUpPassword;
     [SerializeField] private TMP_InputField signUpConfermationPassword;
     
-    private DataBaseManager dataBase;
+    public DataBaseManager dataBase;
 
     private GameObject _signUpPanel;
     void Awake()
@@ -62,8 +62,7 @@ public class LoginManager : MonoBehaviour
     {
         if (CorrectInformation())
         {
-            DataBaseManager db = gameObject.AddComponent<DataBaseManager>();
-            db.Register(firstName, lastName, signUpMail, phoneNumber, signUpPassword);
+            dataBase.Register(firstName.text, lastName.text, signUpMail.text, phoneNumber.text, signUpPassword.text);
         }
         else
             Debug.Log("the information are not correct");    

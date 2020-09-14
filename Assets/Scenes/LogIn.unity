@@ -1023,6 +1023,7 @@ MonoBehaviour:
   phoneNumber: {fileID: 490092730}
   signUpPassword: {fileID: 848055885}
   signUpConfermationPassword: {fileID: 270685581}
+  dataBase: {fileID: 833917764}
 --- !u!4 &333289393
 Transform:
   m_ObjectHideFlags: 0
