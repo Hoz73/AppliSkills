@@ -23,49 +23,55 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private TMP_InputField signUpPassword;
     [SerializeField] private TMP_InputField signUpConfermationPassword;
     
+    //Login panels
+    [SerializeField]private GameObject _signUpPanel;
+    [SerializeField] private GameObject _signInPanel;
+    
+    //DataBase instance
     public DataBaseManager dataBase;
 
-    private GameObject _signUpPanel;
-    void Awake()
+    public bool CorrectInformationToSignUp()
     {
-        //_signUpPanel.SetActive(false);
-        
-    }
-
-    public bool CorrectInformation()
-    {
-        return (firstName.text != null && lastName.text != null && signUpMail.text != null &&
-                signUpPassword.text != null &&
-                signUpConfermationMail.text != null && phoneNumber.text != null &&
-                signUpConfermationPassword.text != null &&
+        return (firstName.text !="" && lastName.text !="" && signUpMail.text != "" &&
+                signUpPassword.text != "" &&
+                signUpConfermationMail.text != "" && phoneNumber.text != "" &&
+                signUpConfermationPassword.text != "" &&
                 signUpPassword.text == signUpConfermationPassword.text &&
                 signUpConfermationMail.text == signUpMail.text);
     }
-    public void InformationToVerifyToSignIn()
-    { 
-        if (signInMail.text == "admin" && signInPassword.text == "admin")
-        {
-            Debug.Log("yes");
-        }
-        else
-        {
-            Debug.Log("Vous ne passerez pas !");
-        }
-    }
 
+    public bool CorrectInformationToSignIn()
+    {
+        return (signInMail.text != "" && signInPassword.text !="");
+    }
+    
     public void SignUpActivate()
     {
         _signUpPanel.SetActive(true);
+        _signInPanel.SetActive(false);
+    }
+    public void SignInActivate()
+    {
+        _signInPanel.SetActive(true);
+        _signUpPanel.SetActive(false);
     }
     
+    public void InformationToVerifyToSignIn()
+    {
+        if(CorrectInformationToSignIn())
+            dataBase.SignIn(signInMail.text, signInPassword.text);
+        else
+            Debug.Log("the information are not correct");   
+    }
+
     public void InformationToVerifyToSignUp()
     {
-        if (CorrectInformation())
-        {
+        if (CorrectInformationToSignUp())
             dataBase.Register(firstName.text, lastName.text, signUpMail.text, phoneNumber.text, signUpPassword.text);
-        }
         else
             Debug.Log("the information are not correct");    
     }
+    
+    
     
 }

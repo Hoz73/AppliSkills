@@ -49,21 +49,75 @@ public class DataBaseManager : MonoBehaviour
     
     public void Register(string firstName, string lastName, string mail, string phone, string password)
     {
-        ConnectDB();
-        String command =
-            "INSERT INTO `user`(`firstName`, `lastName`, `mail`, `phone`, `password`) VALUES ('"+firstName+"','"+lastName+"','"+mail+"','"+phone+"','"+password+"')";
+        bool exist = false;
         
-        MySqlCommand cmd = new MySqlCommand(command, connection);
+        //connect to the DataBase
+        ConnectDB();
+        
+        // verify if the mail is already used
         try
         {
-            cmd.ExecuteReader();
-            State.text = "Register successful";
+            String commandSelect = "SELECT mail FROM user WHERE mail = '" + mail + "'";
+            MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
+            MySqlDataReader myRider = cmdSelect.ExecuteReader();
+        
+            while(myRider.Read())
+                if (myRider["mail"].ToString() != "")
+                {
+                    State.text = "This mail is already used";
+                    exist = true;
+                }
+            cmdSelect.Dispose();
+            myRider.Close();
         }
         catch (IOException e)
         {
-            State.text = cmd.ToString();
+            State.text = e.ToString();
+            throw;
         }
-        cmd.Dispose();
+        
+        
+        //the registration of the the user
+        if (!exist)
+        {
+            String commandInsert =
+                "INSERT INTO `user`(`firstName`, `lastName`, `mail`, `phone`, `password`) VALUES ('"+firstName+"','"+lastName+"','"+mail+"','"+phone+"','"+password+"')";
+        
+            MySqlCommand cmdInsert = new MySqlCommand(commandInsert, connection);
+            try
+            {
+                cmdInsert.ExecuteReader();
+                State.text = "Register successful";
+            }
+            catch (IOException e)
+            {
+                State.text = cmdInsert.ToString();
+            }
+            cmdInsert.Dispose();
+        }
         connection.Close();
+    }
+
+    public void SignIn(string mail, string password) //TODO not done yet
+    {
+        ConnectDB();
+        string pass = null;
+
+        try
+        {
+             String commandSelect = "SELECT mail FROM user WHERE mail = '" + mail + "'";;
+            MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
+            MySqlDataReader myRider = cmdSelect.ExecuteReader();
+
+            while (myRider.Read())
+            {
+                pass = myRider["password"].ToString(); //TODO here where i stopped 
+            }
+        }
+        catch (IOException e)
+        {
+            State.text = e.ToString();
+        }
+
     }
 }
