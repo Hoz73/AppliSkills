@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelUserStore">
+    <attachedFolders />
+    <explicitIncludes>
+      <Path>Library/PackageCache/com.unity.ide.vscode@1.1.3</Path>
+      <Path>Library/PackageCache/com.unity.test-framework@1.1.9</Path>
+    </explicitIncludes>
+    <explicitExcludes>
+      <Path>.git</Path>
+      <Path>.idea</Path>
+      <Path>Library</Path>
+      <Path>Logs</Path>
+      <Path>obj</Path>
+    </explicitExcludes>
+  </component>
+</project>
