@@ -18,6 +18,8 @@ public class DataBaseManager : MonoBehaviour
     public string Password;
     public Text State;
     private MySqlConnection connection;
+    
+    public LoginManager LoginManager;
 
     struct User
     {
@@ -96,6 +98,7 @@ public class DataBaseManager : MonoBehaviour
             {
                 cmdInsert.ExecuteReader();
                 State.text = "Register successful";
+                LoginManager.SignInActivate();
             }
             catch (IOException e)
             {
