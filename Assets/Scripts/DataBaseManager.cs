@@ -19,6 +19,16 @@ public class DataBaseManager : MonoBehaviour
     public Text State;
     private MySqlConnection connection;
 
+    struct User
+    {
+        public int ID;
+        public string FirstName;
+        public string LastName;
+        public string Mail;
+        public int Phone;
+        public string Password;
+    }
+    User ConnectedUser;
 
     public void ConnectDB()
     {
@@ -42,9 +52,7 @@ public class DataBaseManager : MonoBehaviour
     {
         Debug.Log("Shutdown connection");
         if (connection != null && connection.State.ToString() != "Closed")
-        {
             connection.Close();
-        }
     }
     
     public void Register(string firstName, string lastName, string mail, string phone, string password)
@@ -105,19 +113,37 @@ public class DataBaseManager : MonoBehaviour
 
         try
         {
-             String commandSelect = "SELECT mail FROM user WHERE mail = '" + mail + "'";;
+            String commandSelect = "SELECT * FROM user WHERE mail = '" + mail + "'";;
             MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
             MySqlDataReader myRider = cmdSelect.ExecuteReader();
 
             while (myRider.Read())
             {
-                pass = myRider["password"].ToString(); //TODO here where i stopped 
+                pass = myRider["password"].ToString();
+                if (pass == password)
+                {
+                    ConnectedUser.ID = (int) myRider["id"];
+                    ConnectedUser.Phone = (int) myRider["phone"];
+                    ConnectedUser.FirstName = myRider["firstName"].ToString();
+                    ConnectedUser.LastName = myRider["lastName"].ToString();
+                    ConnectedUser.Mail = myRider["mail"].ToString();
+                    ConnectedUser.Password = myRider["password"].ToString();
+
+                    State.text = "Welcome " + ConnectedUser.FirstName +" "+ ConnectedUser.LastName + " !";
+                }
+                else 
+                    State.text = "invalid information";
             }
+            if (pass == null)
+                State.text = "the account doesn't exist";
+                
+            cmdSelect.Dispose();
+            myRider.Close();
         }
         catch (IOException e)
         {
             State.text = e.ToString();
         }
-
+        connection.Close();
     }
 }
