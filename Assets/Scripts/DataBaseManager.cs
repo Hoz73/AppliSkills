@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine;
 using MySql.Data.MySqlClient;
 using TMPro;
+using UnityEditor.MemoryProfiler;
 using UnityEngine.UI;
 
 
@@ -21,7 +22,7 @@ public class DataBaseManager : MonoBehaviour
     
     public LoginManager LoginManager;
 
-    struct User
+    public struct User
     {
         public int ID;
         public string FirstName;
@@ -43,7 +44,7 @@ public class DataBaseManager : MonoBehaviour
         {
             connection = new MySqlConnection(con);
             connection.Open();
-            State.text = connection.State.ToString();
+           // State.text = connection.State.ToString();
         }catch (IOException e)
         {
             State.text = e.ToString();
@@ -83,7 +84,6 @@ public class DataBaseManager : MonoBehaviour
         catch (IOException e)
         {
             State.text = e.ToString();
-            throw;
         }
         
         
@@ -148,5 +148,46 @@ public class DataBaseManager : MonoBehaviour
             State.text = e.ToString();
         }
         connection.Close();
+    }
+
+    public List<User> RegexSearch(String regex)
+    {
+        List<User> results = new List<User>();
+        ConnectDB();
+        try {
+        
+            if (regex.Length >= 1) {
+                String sqlRequest = "SELECT * FROM user WHERE firstName REGEXP '^" + regex + "'";
+                String commandSelect = sqlRequest;
+                MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
+                MySqlDataReader myRider = cmdSelect.ExecuteReader();
+
+                while (myRider.Read())
+                {
+                    /*Debug.Log("Match result found : " + myRider["firstName"].ToString() + " with ID: " +
+                               myRider["id"].ToString());*/
+                    User u;
+                    u.FirstName = myRider["firstName"].ToString();
+                    u.LastName = myRider["lastName"].ToString();
+                    u.ID =  (int) myRider["id"];
+                    u.Phone = (int) myRider["Phone"];
+                    u.Mail = myRider["mail"].ToString();
+                    u.Password = myRider["password"].ToString();
+
+                    results.Add(u);
+                }
+
+                cmdSelect.Dispose();
+                myRider.Close();
+            }
+        }
+        catch (IOException e)
+        {
+            State.text = e.ToString();
+        }
+
+        connection.Close();
+
+        return results;
     }
 }
