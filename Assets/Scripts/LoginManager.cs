@@ -10,8 +10,6 @@ using UnityEngine.Serialization;
 public class LoginManager : MonoBehaviour
 {
     
-    
-    
     //information needed to sign in     
     [SerializeField] private TMP_InputField signInMail;
     [SerializeField] private TMP_InputField signInPassword;
@@ -19,41 +17,61 @@ public class LoginManager : MonoBehaviour
     //information needed to sign up
     [SerializeField] private TMP_InputField firstName;
     [SerializeField] private TMP_InputField lastName;
-    [SerializeField] private TMP_InputField phoneNumber;
     [SerializeField] private TMP_InputField signUpMail;
     [SerializeField] private TMP_InputField signUpConfermationMail;
+    [SerializeField] private TMP_InputField phoneNumber;
     [SerializeField] private TMP_InputField signUpPassword;
     [SerializeField] private TMP_InputField signUpConfermationPassword;
     
+    //Login panels
+    [SerializeField]private GameObject _signUpPanel;
+    [SerializeField] private GameObject _signInPanel;
+    
+    //DataBase instance
+    public DataBaseManager dataBase;
 
-    private GameObject _signUpPanel;
-    void Awake()
+    public bool CorrectInformationToSignUp()
     {
-        //_signUpPanel.SetActive(false);
+        return (firstName.text !="" && lastName.text !="" && signUpMail.text != "" &&
+                signUpPassword.text != "" &&
+                signUpConfermationMail.text != "" && phoneNumber.text != "" &&
+                signUpConfermationPassword.text != "" &&
+                signUpPassword.text == signUpConfermationPassword.text &&
+                signUpConfermationMail.text == signUpMail.text);
     }
 
-    public void InformationToVerifyToSignIn()
+    public bool CorrectInformationToSignIn()
     {
-       /* Debug.Log(mail.text);
-        Debug.Log(password.text);*/
-       if (signInMail.text == "admin" && signInPassword.text == "admin")
-       {
-           Debug.Log("yes");
-       }
-       else
-       {
-        Debug.Log("Vous ne passerez pas !");
-       }
+        return (signInMail.text != "" && signInPassword.text !="");
     }
-
+    
     public void SignUpActivate()
     {
         _signUpPanel.SetActive(true);
+        _signInPanel.SetActive(false);
+    }
+    public void SignInActivate()
+    {
+        _signInPanel.SetActive(true);
+        _signUpPanel.SetActive(false);
     }
     
+    public void InformationToVerifyToSignIn()
+    {
+        if(CorrectInformationToSignIn())
+            dataBase.SignIn(signInMail.text, signInPassword.text);
+        else
+            Debug.Log("the information are not correct");   
+    }
+
     public void InformationToVerifyToSignUp()
     {
-        /*Debug.Log(mail.text);
-        Debug.Log(password.text);*/
+        if (CorrectInformationToSignUp())
+            dataBase.Register(firstName.text, lastName.text, signUpMail.text, phoneNumber.text, signUpPassword.text);
+        else
+            Debug.Log("the information are not correct");    
     }
+    
+    
+    
 }
