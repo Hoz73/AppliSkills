@@ -33,25 +33,25 @@ public class AdminManager : MonoBehaviour
         
     }
 
-    public void AddSkillGroup() //TODO switch panel
+    public void AddSkillGroup() 
     {
         navigationPanelBySkillGroup.SetActive(false);
         addSkillGroupPanel.SetActive(true);
     }
 
-    public void ManageSkillGroups() //TODO switch panel
+    public void ManageSkillGroups() 
     {
         navigationPanelBySkillGroup.SetActive(false);
         editSkillGroupPanel.SetActive(true);
     }
 
-    public void AddUserGroup() //TODO switch panel
+    public void AddUserGroup() 
     {
         navigationPanelByUserGroup.SetActive(false);
         addUserGroupPanel.SetActive(true);
     }
 
-    public void ManageUserGroups() //TODO switch panel
+    public void ManageUserGroups()
     {
         navigationPanelByUserGroup.SetActive(false);
         editUserGroupPanel.SetActive(true);

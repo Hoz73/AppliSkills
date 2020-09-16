@@ -30,7 +30,17 @@ public class DataBaseManager : MonoBehaviour
         public string Mail;
         public int Phone;
         public string Password;
+        public List<int> SkillGroups;
+        public Type Type;
     }
+    
+    public enum Type
+    {
+         Student,
+         Teacher,
+         Admin,
+    }
+    
     User ConnectedUser;
 
     public void ConnectDB()
@@ -91,7 +101,7 @@ public class DataBaseManager : MonoBehaviour
         if (!exist)
         {
             String commandInsert =
-                "INSERT INTO `user`(`firstName`, `lastName`, `mail`, `phone`, `password`) VALUES ('"+firstName+"','"+lastName+"','"+mail+"','"+phone+"','"+password+"')";
+                "INSERT INTO `user`(`firstName`, `lastName`, `mail`, `phone`, `password`, `type`) VALUES ('"+firstName+"','"+lastName+"','"+mail+"','"+phone+"','"+password+"','"+Type.Student+"')";
         
             MySqlCommand cmdInsert = new MySqlCommand(commandInsert, connection);
             try
@@ -109,7 +119,7 @@ public class DataBaseManager : MonoBehaviour
         connection.Close();
     }
 
-    public void SignIn(string mail, string password) //TODO not done yet
+    public void SignIn(string mail, string password) 
     {
         ConnectDB();
         string pass = null;
@@ -131,6 +141,11 @@ public class DataBaseManager : MonoBehaviour
                     ConnectedUser.LastName = myRider["lastName"].ToString();
                     ConnectedUser.Mail = myRider["mail"].ToString();
                     ConnectedUser.Password = myRider["password"].ToString();
+                    //ConnectedUser.SkillGroups.Add((int) myRider["skillGroups"]); //TODO add the skillGroup to the connected user
+                    ConnectedUser.Type =  (Type) Enum.Parse(typeof(Type), myRider["type"].ToString());
+                    
+                    /* foreach (var VARIABLE in ConnectedUser.GroupSkill) 
+                         Debug.Log(VARIABLE);*/
 
                     State.text = "Welcome " + ConnectedUser.FirstName +" "+ ConnectedUser.LastName + " !";
                 }
@@ -164,8 +179,6 @@ public class DataBaseManager : MonoBehaviour
 
                 while (myRider.Read())
                 {
-                    /*Debug.Log("Match result found : " + myRider["firstName"].ToString() + " with ID: " +
-                               myRider["id"].ToString());*/
                     User u;
                     u.FirstName = myRider["firstName"].ToString();
                     u.LastName = myRider["lastName"].ToString();
@@ -173,10 +186,12 @@ public class DataBaseManager : MonoBehaviour
                     u.Phone = (int) myRider["Phone"];
                     u.Mail = myRider["mail"].ToString();
                     u.Password = myRider["password"].ToString();
+                    u.Type = (Type) Enum.Parse(typeof(Type), myRider["type"].ToString()); // TODO haven't been tested yet
+                    u.SkillGroups = null;
+                    u.SkillGroups.Add((int) myRider["skillGroup"]); // TODO haven't been tested yet
 
                     results.Add(u);
                 }
-
                 cmdSelect.Dispose();
                 myRider.Close();
             }
