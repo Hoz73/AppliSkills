@@ -30,7 +30,6 @@ public class DataBaseManager : MonoBehaviour
         public string Mail;
         public int Phone;
         public string Password;
-        public List<int> SkillGroups;
         public Type Type;
     }
     
@@ -141,7 +140,6 @@ public class DataBaseManager : MonoBehaviour
                     ConnectedUser.LastName = myRider["lastName"].ToString();
                     ConnectedUser.Mail = myRider["mail"].ToString();
                     ConnectedUser.Password = myRider["password"].ToString();
-                    //ConnectedUser.SkillGroups.Add((int) myRider["skillGroups"]); //TODO add the skillGroup to the connected user
                     ConnectedUser.Type =  (Type) Enum.Parse(typeof(Type), myRider["type"].ToString());
                     
                     /* foreach (var VARIABLE in ConnectedUser.GroupSkill) 
@@ -187,8 +185,6 @@ public class DataBaseManager : MonoBehaviour
                     u.Mail = myRider["mail"].ToString();
                     u.Password = myRider["password"].ToString();
                     u.Type = (Type) Enum.Parse(typeof(Type), myRider["type"].ToString()); // TODO haven't been tested yet
-                    u.SkillGroups = null;
-                    u.SkillGroups.Add((int) myRider["skillGroup"]); // TODO haven't been tested yet
 
                     results.Add(u);
                 }
