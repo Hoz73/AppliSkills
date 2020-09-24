@@ -30,15 +30,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="created the tables and their relations">
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="modified the login interface + added some shaderGraphs">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/Hologram/HologramMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/Hologram/HologramMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/Hologram/HologramShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/Hologram/HologramShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +64,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" />
       </list>
     </option>
   </component>
@@ -119,7 +123,10 @@
       <updated>1599664740772</updated>
       <workItem from="1599664819925" duration="1473000" />
       <workItem from="1600268974814" duration="9729000" />
-      <workItem from="1600328054275" duration="1969000" />
+      <workItem from="1600328054275" duration="6281000" />
+      <workItem from="1600418482428" duration="178000" />
+      <workItem from="1600421816155" duration="1134000" />
+      <workItem from="1600949116023" duration="10078000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -156,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600278851770</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="modified the login interface + added some shaderGraphs">
+      <created>1600341735497</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1600341735498</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +197,8 @@
     <MESSAGE value="Merged the branch login into develop" />
     <MESSAGE value="Created the search input field" />
     <MESSAGE value="created the tables and their relations" />
-    <option name="LAST_COMMIT_MESSAGE" value="created the tables and their relations" />
+    <MESSAGE value="modified the login interface + added some shaderGraphs" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified the login interface + added some shaderGraphs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">
@@ -198,15 +213,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600272679985" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1600278865487">
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1600341752694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="289" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599846367874" />
     <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600184178262" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600278865487" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1600176506109">
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1600341752694" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1600950703318">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600176506109" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600950703318" />
   </component>
 </project>

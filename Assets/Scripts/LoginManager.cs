@@ -10,11 +10,14 @@ using UnityEngine.Serialization;
 public class LoginManager : MonoBehaviour
 {
     
-    //information needed to sign in     
+    //information needed to sign in  
+    [Header("THE SIGNIN INFORMATION")]
     [SerializeField] private TMP_InputField signInMail;
     [SerializeField] private TMP_InputField signInPassword;
     
     //information needed to sign up
+    [Header("THE SIGNUP INFORMATION")]
+    [Space(30)]
     [SerializeField] private TMP_InputField firstName;
     [SerializeField] private TMP_InputField lastName;
     [SerializeField] private TMP_InputField signUpMail;
@@ -24,11 +27,15 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private TMP_InputField signUpConfermationPassword;
     
     //Login panels
+    [Header("LOGIN PANELS")]
+    [Space(30)]
     [SerializeField]private GameObject _signUpPanel;
     [SerializeField] private GameObject _signInPanel;
     
     //DataBase instance
-    public DataBaseManager dataBase;
+    [Header("DATABASE INSTANCE")]
+    [Space(30)]
+    [SerializeField] private DataBaseManager dataBase;
 
     public bool CorrectInformationToSignUp()
     {

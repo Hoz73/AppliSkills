@@ -6,13 +6,15 @@ using System.IO;
 using UnityEngine;
 using MySql.Data.MySqlClient;
 using TMPro;
-using UnityEditor.MemoryProfiler;
+//using UnityEditor.MemoryProfiler;
 using UnityEngine.UI;
 
 
 public class DataBaseManager : MonoBehaviour
 {
     // information needed for the connection with the DataBase
+    [Header("THE CONNECTION TO THE DATABASE")]
+    
     public string Host; 
     public string DataBase;
     public string Username;
@@ -20,6 +22,9 @@ public class DataBaseManager : MonoBehaviour
     public Text State;
     private MySqlConnection connection;
     
+    
+    [Header("MANAGERS")]
+    [Space(30)]
     public LoginManager LoginManager;
 
     public struct User
@@ -36,7 +41,7 @@ public class DataBaseManager : MonoBehaviour
     public enum Type
     {
          Student,
-         Teacher,
+         Supervisor,
          Admin,
     }
     
@@ -111,7 +116,7 @@ public class DataBaseManager : MonoBehaviour
             }
             catch (IOException e)
             {
-                State.text = cmdInsert.ToString();
+                State.text = e.ToString();
             }
             cmdInsert.Dispose();
         }
@@ -131,7 +136,7 @@ public class DataBaseManager : MonoBehaviour
 
             while (myRider.Read())
             {
-                pass = myRider["password"].ToString();
+                pass = myRider["hash"].ToString();
                 if (pass == password)
                 {
                     ConnectedUser.ID = (int) myRider["id"];
@@ -139,7 +144,7 @@ public class DataBaseManager : MonoBehaviour
                     ConnectedUser.FirstName = myRider["firstName"].ToString();
                     ConnectedUser.LastName = myRider["lastName"].ToString();
                     ConnectedUser.Mail = myRider["mail"].ToString();
-                    ConnectedUser.Password = myRider["password"].ToString();
+                    ConnectedUser.Password = myRider["hash"].ToString();
                     ConnectedUser.Type =  (Type) Enum.Parse(typeof(Type), myRider["type"].ToString());
                     
                     /* foreach (var VARIABLE in ConnectedUser.GroupSkill) 
@@ -200,5 +205,53 @@ public class DataBaseManager : MonoBehaviour
         connection.Close();
 
         return results;
+    }
+
+    public List<Tuple<int, string, string>> GetUsers()
+    {
+        var res = new List <Tuple<int, string, string>>();
+        ConnectDB();
+        try
+        {
+            String sqlRequest = "SELECT * FROM user WHERE type = '" + Type.Supervisor + "'";
+            String commandSelect = sqlRequest;
+            MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
+            MySqlDataReader myRider = cmdSelect.ExecuteReader();
+
+            while (myRider.Read())
+            {
+                var sup = new Tuple<int, string, string>((int) myRider["id"], myRider["firstName"].ToString(), myRider["LastName"].ToString());
+                res.Add(sup);
+            }
+            cmdSelect.Dispose();
+            myRider.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        connection.Close();
+        
+        return res;
+    }
+
+    public void CreateSkillGroup(int idSupervisor, string tableName) //TODO not tested yet
+    {
+        String commandInsert = "";
+        MySqlCommand cmdInsert = new MySqlCommand(commandInsert, connection);
+        
+        try
+        {
+            cmdInsert.ExecuteReader();
+            State.text = "Register successful";
+            LoginManager.SignInActivate();
+        }
+        catch (IOException e)
+        {
+            State.text = e.ToString();
+        }
+        cmdInsert.Dispose();
+        connection.Close();
     }
 }
