@@ -18,9 +18,7 @@ public class SearchManager : MonoBehaviour
         dataBase = new DataBaseManager();
     }
     
-    
-    
-    public void RegexSearchFromInputFieldUser()
+    public void RegexSearchFromInputFieldUser() //TODO need to be modified (it was a test function)
     {
         
         List<DataBaseManager.User> results = dataBase.RegexSearch(searchInputField.text, "tableName", "fieldName");
@@ -41,17 +39,17 @@ public class SearchManager : MonoBehaviour
         }
     }
 
-    public void RegexSearchFromInputFieldSkill()
+    public void RegexSearchFromInputFieldSkill()//TODO
     {
         
     }
     
-    public void RegexSearchFromInputFieldSkillGroup()
+    public void RegexSearchFromInputFieldSkillGroup()//TODO
     {
         
     }
     
-    public void RegexSearchFromInputFieldUserGroup()
+    public void RegexSearchFromInputFieldUserGroup()//TODO
     {
         
     }
