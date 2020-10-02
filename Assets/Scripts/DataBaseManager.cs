@@ -46,6 +46,9 @@ public class DataBaseManager : MonoBehaviour
     }
     
     User ConnectedUser;
+    
+    //constructor 
+    public DataBaseManager(){}
 
     public void ConnectDB()
     {
@@ -168,20 +171,36 @@ public class DataBaseManager : MonoBehaviour
         connection.Close();
     }
 
-    public List<User> RegexSearch(String regex)
+    public List<User> RegexSearch(String regex, string tableName, string fieldName) //TODO Modified and not finished yet (waiting the new server + the final DB)
     {
         List<User> results = new List<User>();
         ConnectDB();
         try {
         
             if (regex.Length >= 1) {
-                String sqlRequest = "SELECT * FROM user WHERE firstName REGEXP '^" + regex + "'";
+                //String sqlRequest = "SELECT * FROM user WHERE firstName REGEXP '^" + regex + "'";
+                String sqlRequest = "SELECT * FROM "+ tableName +" WHERE "+ fieldName +" REGEXP '^" + regex + "'";
+                
                 String commandSelect = sqlRequest;
                 MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
                 MySqlDataReader myRider = cmdSelect.ExecuteReader();
 
                 while (myRider.Read())
                 {
+                    if (tableName == "user")
+                    {
+                        
+                    }else if (tableName == "skill")
+                    {
+                        
+                    }else if (tableName == "userGroup")
+                    {
+                        
+                    }else if (tableName == "skillGroup")
+                    {
+                        
+                    }
+                    /*
                     User u;
                     u.FirstName = myRider["firstName"].ToString();
                     u.LastName = myRider["lastName"].ToString();
@@ -192,6 +211,7 @@ public class DataBaseManager : MonoBehaviour
                     u.Type = (Type) Enum.Parse(typeof(Type), myRider["type"].ToString()); // TODO haven't been tested yet
 
                     results.Add(u);
+                    */
                 }
                 cmdSelect.Dispose();
                 myRider.Close();

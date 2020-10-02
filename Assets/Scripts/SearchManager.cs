@@ -11,13 +11,19 @@ public class SearchManager : MonoBehaviour
     [SerializeField] private TMP_InputField searchInputField;
     [SerializeField] private GameObject searchResultsPanel;
     [SerializeField] private GameObject resultsList;
-    public DataBaseManager dataBase;
+    private DataBaseManager dataBase;
 
-
-
-    public void RegexSearchFromInputField()
+    void Start()
     {
-        List<DataBaseManager.User> results = dataBase.RegexSearch(searchInputField.text);
+        dataBase = new DataBaseManager();
+    }
+    
+    
+    
+    public void RegexSearchFromInputFieldUser()
+    {
+        
+        List<DataBaseManager.User> results = dataBase.RegexSearch(searchInputField.text, "tableName", "fieldName");
         List<Tuple<int, GameObject>> idTuplesList = new List<Tuple<int, GameObject>>();
         
         idTuplesList.Clear();
@@ -33,6 +39,21 @@ public class SearchManager : MonoBehaviour
             Tuple<int, GameObject> idTuples = new Tuple<int, GameObject>(item.ID, go);
             idTuplesList.Add(idTuples);
         }
+    }
+
+    public void RegexSearchFromInputFieldSkill()
+    {
+        
+    }
+    
+    public void RegexSearchFromInputFieldSkillGroup()
+    {
+        
+    }
+    
+    public void RegexSearchFromInputFieldUserGroup()
+    {
+        
     }
 
 }

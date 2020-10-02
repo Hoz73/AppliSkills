@@ -33,9 +33,12 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private GameObject _signInPanel;
     
     //DataBase instance
-    [Header("DATABASE INSTANCE")]
-    [Space(30)]
-    [SerializeField] private DataBaseManager dataBase;
+    private DataBaseManager dataBase;
+
+    void Awake()
+    {
+        dataBase = new DataBaseManager();
+    }
 
     public bool CorrectInformationToSignUp()
     {

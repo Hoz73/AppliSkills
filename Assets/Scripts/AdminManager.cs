@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AdminManager : MonoBehaviour
 {
@@ -17,19 +18,32 @@ public class AdminManager : MonoBehaviour
     [Space(30)]
     [SerializeField] private GameObject addSkillGroupPanel;
     [SerializeField] private GameObject addUserGroupPanel;
-    [SerializeField] private TMP_InputField NameSkillGroupInputField;
-    [SerializeField] private TMP_InputField NameUserGroupInputField;
+    [SerializeField] private TMP_InputField nameSkillGroupInputField;
+    [SerializeField] private TMP_InputField nameUserGroupInputField;
     
     //Edit panels
     [Header("EDIT PANELS")]
     [Space(30)]
     [SerializeField] private GameObject editSkillGroupPanel;
     [SerializeField] private GameObject editUserGroupPanel;
+    [SerializeField] private TMP_InputField searchInputFieldEditSkillGroup;
+    [SerializeField] private TMP_InputField searchInputFieldEditUserGroup;
+    
+    
+    // Modify panels
+    [Header("Modify PANELS")]
+    [Space(30)]
+    [SerializeField] private GameObject modifySkillGroupPanel;
+    [SerializeField] private GameObject modifyUserGroupPanel;
+    [SerializeField] private TMP_InputField newNameUserGroupInputField;
+    [SerializeField] private TMP_InputField newNameSkillGroupInputField;
+    [SerializeField] private TMP_InputField searchInputFieldModifyAddStudent;
+    [SerializeField] private TMP_InputField searchInputFieldModifyDeleteStudent;
     
     //instances
     [Header("INSTANCES")]
     [Space(30)]
-    [SerializeField] private DataBaseManager dataBase;
+    private DataBaseManager dataBase;
     [SerializeField] private GameObject supervisorPrefab;
     
     //The list of supervisors
@@ -38,7 +52,11 @@ public class AdminManager : MonoBehaviour
     [SerializeField] private GameObject listOfSupervisors;
     
     
-    
+
+    void Awake()
+    {
+        dataBase = new DataBaseManager();
+    }
     public void BySkillGroupButton()
     {
         adminPanel.SetActive(false);
@@ -52,9 +70,9 @@ public class AdminManager : MonoBehaviour
         navigationPanelByUserGroup.SetActive(true);
     }
     
-    public void Disconnect() //TODO to change the scene
+    public void Disconnect()
     {
-        
+        SceneManager.LoadScene("LogIn");
     }
 
     public void AddSkillGroup() 
@@ -80,6 +98,18 @@ public class AdminManager : MonoBehaviour
         navigationPanelByUserGroup.SetActive(false);
         editUserGroupPanel.SetActive(true);
     }
+    
+    public void ModifyUserGroup()
+    {
+        editUserGroupPanel.SetActive(false);
+        modifyUserGroupPanel.SetActive(true);
+    }
+    
+    public void ModifySkillGroup()
+    {
+        editSkillGroupPanel.SetActive(false);
+        modifySkillGroupPanel.SetActive(true);
+    }
 
     public void ReturnToAdminPanel()
     {
@@ -93,6 +123,9 @@ public class AdminManager : MonoBehaviour
         
         editSkillGroupPanel.SetActive(false);
         editUserGroupPanel.SetActive(false);
+        
+        modifySkillGroupPanel.SetActive(false);
+        modifyUserGroupPanel.SetActive(false);
     }
     
     public Tuple<int, string, string>Supervisor() //TODO not done yet, waiting the new server 
@@ -111,9 +144,11 @@ public class AdminManager : MonoBehaviour
         return null;
     }
 
-    public void CreateSkillGroup(Tuple<int, string, string> supervisor) //TODO call the function (createSkillGroup) from the database
+    public void CreateSkillGroup() //TODO call the function (CreateSkillGroup) from the database
     {
-        
+
+        Tuple<int, string, string> s = Supervisor();
+        dataBase.CreateSkillGroup(s.Item1,"tableName");
     }
     
 }
