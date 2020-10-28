@@ -10,22 +10,34 @@ using TMPro;
 using UnityEngine.UI;
 
 
-public class DataBaseManager : MonoBehaviour
+public static class DataBaseManager
 {
-    // information needed for the connection with the DataBase
-    [Header("THE CONNECTION TO THE DATABASE")]
+
+    public static string UserName;
+    public static bool LoggedIn { get {return UserName != null;} }
+
+    public static void LogOut()
+    {
+        UserName = null;
+    }
     
-    public string Host; 
+    
+    
+    
+    
+    
+    // information needed for the connection with the DataBase
+    //[Header("THE CONNECTION TO THE DATABASE")]
+
+    /*public string Host; 
     public string DataBase;
     public string Username;
     public string Password;
     public Text State;
-    private MySqlConnection connection;
-    
-    
+    private MySqlConnection connection;*/
     [Header("MANAGERS")]
     [Space(30)]
-    public LoginManager LoginManager;
+    public static LoginManager LoginManager;
 
     public struct User
     {
@@ -37,45 +49,45 @@ public class DataBaseManager : MonoBehaviour
         public string Password;
         public Type Type;
     }
-    
+
     public enum Type
     {
-         Student,
-         Supervisor,
-         Admin,
+        Student,
+        Supervisor,
+        Admin,
     }
-    
-    User ConnectedUser;
-    
+
+    //User ConnectedUser;
+
     //constructor 
-    public DataBaseManager(){}
+    //public DataBaseManager(){}
 
-    public void ConnectDB()
-    {
-        string con = "Server=" + Host +
-                     ";DATABASE=" + DataBase + 
-                     ";User ID=" + Username + 
-                     ";Password=" + Password + 
-                     ";Pooling=true;Charset=utf8;";
-        try
-        {
-            connection = new MySqlConnection(con);
-            connection.Open();
-           // State.text = connection.State.ToString();
-        }catch (IOException e)
-        {
-            State.text = e.ToString();
-        }
-    }
+    /*public void ConnectDB()
+     {
+         string con = "Server=" + Host +
+                      ";DATABASE=" + DataBase + 
+                      ";User ID=" + Username + 
+                      ";Password=" + Password + 
+                      ";Pooling=true;Charset=utf8;";
+         try
+         {
+             connection = new MySqlConnection(con);
+             connection.Open();
+             State.text = connection.State.ToString();
+         }catch (IOException e)
+         {
+             State.text = e.ToString();
+         }
+     }*/
 
-    void OnApplicationQuit()
+    /*void OnApplicationQuit()
     {
         Debug.Log("Shutdown connection");
         if (connection != null && connection.State.ToString() != "Closed")
             connection.Close();
-    }
-    
-    public void Register(string firstName, string lastName, string mail, string phone, string password)
+    }*/
+
+    /*public void Register(string firstName, string lastName, string mail, string phone, string password)
     {
         bool exist = false;
         
@@ -123,10 +135,11 @@ public class DataBaseManager : MonoBehaviour
             }
             cmdInsert.Dispose();
         }
-        connection.Close();
-    }
+        connection.Close();*/
 
-    public void SignIn(string mail, string password) 
+
+
+    /*public void SignIn(string name, string password) 
     {
         ConnectDB();
         string pass = null;
@@ -149,9 +162,6 @@ public class DataBaseManager : MonoBehaviour
                     ConnectedUser.Mail = myRider["mail"].ToString();
                     ConnectedUser.Password = myRider["hash"].ToString();
                     ConnectedUser.Type =  (Type) Enum.Parse(typeof(Type), myRider["type"].ToString());
-                    
-                    /* foreach (var VARIABLE in ConnectedUser.GroupSkill) 
-                         Debug.Log(VARIABLE);*/
 
                     State.text = "Welcome " + ConnectedUser.FirstName +" "+ ConnectedUser.LastName + " !";
                 }
@@ -164,14 +174,9 @@ public class DataBaseManager : MonoBehaviour
             cmdSelect.Dispose();
             myRider.Close();
         }
-        catch (IOException e)
-        {
-            State.text = e.ToString();
-        }
-        connection.Close();
-    }
+    }*/
 
-    public List<User> RegexSearch(String regex, string tableName, string fieldName) //TODO Modified and not finished yet (waiting the new server + the final DB)
+    /*public List<User> RegexSearch(String regex, string tableName, string fieldName) //TODO Modified and not finished yet (waiting the new server + the final DB)
     {
         List<User> results = new List<User>();
         ConnectDB();
@@ -211,7 +216,7 @@ public class DataBaseManager : MonoBehaviour
                     u.Type = (Type) Enum.Parse(typeof(Type), myRider["type"].ToString()); // TODO haven't been tested yet
 
                     results.Add(u);
-                    */
+                    
                 }
                 cmdSelect.Dispose();
                 myRider.Close();
@@ -225,9 +230,9 @@ public class DataBaseManager : MonoBehaviour
         connection.Close();
 
         return results;
-    }
+    }*/
 
-    public List<Tuple<int, string, string>> GetUsers()
+    /*public List<Tuple<int, string, string>> GetUsers()
     {
         var res = new List <Tuple<int, string, string>>();
         ConnectDB();
@@ -254,9 +259,9 @@ public class DataBaseManager : MonoBehaviour
         connection.Close();
         
         return res;
-    }
+    }*/
 
-    public void CreateSkillGroup(int idSupervisor, string tableName) //TODO not tested yet
+    /*public void CreateSkillGroup(int idSupervisor, string tableName) //TODO not tested yet
     {
         String commandInsert = "";
         MySqlCommand cmdInsert = new MySqlCommand(commandInsert, connection);
@@ -273,5 +278,5 @@ public class DataBaseManager : MonoBehaviour
         }
         cmdInsert.Dispose();
         connection.Close();
-    }
+    }*/
 }

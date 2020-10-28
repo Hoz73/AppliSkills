@@ -43,7 +43,7 @@ public class AdminManager : MonoBehaviour
     //instances
     [Header("INSTANCES")]
     [Space(30)]
-    private DataBaseManager dataBase;
+    //private DataBaseManager dataBase;
     [SerializeField] private GameObject supervisorPrefab;
     
     //The list of supervisors
@@ -53,10 +53,10 @@ public class AdminManager : MonoBehaviour
     
     
 
-    void Awake()
+   /* void Awake()
     {
         dataBase = new DataBaseManager();
-    }
+    }*/
     public void BySkillGroupButton()
     {
         adminPanel.SetActive(false);
@@ -128,7 +128,7 @@ public class AdminManager : MonoBehaviour
         modifyUserGroupPanel.SetActive(false);
     }
     
-    public Tuple<int, string, string>Supervisor() //TODO not done yet, waiting the new server 
+    /*public Tuple<int, string, string>Supervisor() //TODO not done yet, waiting the new server 
     {
         var sups = dataBase.GetUsers();
         
@@ -142,13 +142,13 @@ public class AdminManager : MonoBehaviour
             listOfSups.Add(new Tuple<GameObject, Tuple<int, string, string> >(supervisorButton, sup));
         }
         return null;
-    }
+    }*/
 
-    public void CreateSkillGroup() //TODO call the function (CreateSkillGroup) from the database
+    /*public void CreateSkillGroup() //TODO call the function (CreateSkillGroup) from the database
     {
 
         Tuple<int, string, string> s = Supervisor();
         dataBase.CreateSkillGroup(s.Item1,"tableName");
-    }
+    }*/
     
 }

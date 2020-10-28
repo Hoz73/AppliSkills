@@ -33,12 +33,12 @@ public class LoginManager : MonoBehaviour
     [SerializeField] private GameObject _signInPanel;
     
     //DataBase instance
-    private DataBaseManager dataBase;
+    //private DataBaseManager dataBase;
 
-    void Awake()
+   /*void Awake()
     {
         dataBase = new DataBaseManager();
-    }
+    }*/
 
     public bool CorrectInformationToSignUp()
     {
@@ -69,7 +69,7 @@ public class LoginManager : MonoBehaviour
     public void InformationToVerifyToSignIn()
     {
         if(CorrectInformationToSignIn())
-            dataBase.SignIn(signInMail.text, signInPassword.text);
+            StartCoroutine(LogIn());
         else
             Debug.Log("the information are not correct");   
     }
@@ -77,9 +77,50 @@ public class LoginManager : MonoBehaviour
     public void InformationToVerifyToSignUp()
     {
         if (CorrectInformationToSignUp())
-            dataBase.Register(firstName.text, lastName.text, signUpMail.text, phoneNumber.text, signUpPassword.text);
+            StartCoroutine(Registers());
         else
-            Debug.Log("the information are not correct");    
+            Debug.Log("the information are not correct");
+    }
+
+    IEnumerator LogIn()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("mail",signInMail.text);
+        form.AddField("password",signInPassword.text);
+        WWW www = new WWW("http://localhost/sql/logIn.php", form);
+        yield return www;
+        if(www.text[0] =='0')
+        {
+            Debug.Log("Logged in successfully");
+            DataBaseManager.UserName = www.text.Split('\t')[1];
+            Debug.Log( "welcome "+DataBaseManager.UserName);
+        }
+        else
+        {
+            Debug.Log("logging in failed, error : "+ www.text);
+        }
+    }
+
+    IEnumerator Registers()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("firstName",firstName.text);
+        form.AddField("lastName",lastName.text);
+        form.AddField("mail",signUpMail.text);
+        form.AddField("phone",phoneNumber.text);
+        form.AddField("password",signUpPassword.text);
+       
+        WWW www = new WWW("http://localhost/sql/register.php", form);
+        yield return www;
+        if(www.text =="0")
+        {
+            Debug.Log("User created successfully");
+            SignInActivate();
+        }
+        else
+        {
+            Debug.Log("User creation failed, error : "+ www.text);
+        }
     }
     
     
