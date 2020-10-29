@@ -291,6 +291,52 @@ public class SearchManager : MonoBehaviour
             Debug.Log("search userGroup has failed, error : "+ www.text);
         }
     }
+    
+    
+  /*  IEnumerator RegexStudentToAdd(GameObject resultPanel, string inputField)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("regex",inputField);
+        form.AddField("table","user");
+        form.AddField("group",DataBaseManager.UserGroupNameToEdit);
+        form.AddField("field","firstName");
+        form.AddField("type","student");
+        
+        WWW www = new WWW("http://localhost/sql/search.php", form);
+        yield return www;
+        Debug.Log(www.text.Split('\t')[0]);
+        Debug.Log(www.text.Split('\t')[1]);
+        Debug.Log(www.text.Split('\t')[2]);
+        if (www.text[0] == '0')
+        {
+            var searchResultsList = new List<Tuple<string, GameObject>>();
+            searchResultsList.Clear();
+            for (var i = 0; i < resultPanel.transform.childCount; i++)
+            {
+                Destroy(resultPanel.transform.GetChild(i).gameObject);
+            }
+            
+            var size = int.Parse(www.text.Split('\t')[1]);
+            for (var i = 2; i < size+2 ; i++)
+            {
+                var studentInfo = www.text.Split('\t')[i];
+
+                var go = Instantiate(button, resultPanel.transform);
+                go.GetComponentInChildren<Text>().text = studentInfo;
+                var studentPrefab= new Tuple<string, GameObject>(studentInfo, go);
+                searchResultsList.Add(studentPrefab);
+            }
+        }
+        else
+        {
+            Debug.Log("search userGroup has failed, error : "+ www.text);
+        }
+    }*/
+
+   /* IEnumerator RegexStudentToDelete(GameObject resultPanel, string inputField)
+    {
+        yield return null;
+    }*/
 
     
    /* public void RegexSearchFromInputFieldUser()

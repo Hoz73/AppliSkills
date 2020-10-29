@@ -20,6 +20,8 @@ public static class DataBaseManager
     {
         UserName = null;
     }
+
+    public static string UserGroupNameToEdit;
     
     
     

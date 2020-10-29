@@ -46,7 +46,7 @@ public class CreateSkillGroup : MonoBehaviour
         form.AddField("skillGroupName",nameInputField.text);
         form.AddField("supervisorFirstName",firstName);
         form.AddField("supervisorLastName",lastName);
-        WWW www = new WWW("http://localhost/sql/create.php", form);
+        WWW www = new WWW("http://localhost/sql/createSkillGroup.php", form);
         yield return www;
         if (www.text == "0")
         {

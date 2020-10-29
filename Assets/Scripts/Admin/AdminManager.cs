@@ -103,6 +103,16 @@ public class AdminManager : MonoBehaviour
     
     public void ModifyUserGroup()
     {
+        var searchResultPanel = editUserGroupPanel.transform.GetChild(0).gameObject;
+        for (var i = 0; i < searchResultPanel.transform.childCount; i++)
+        {
+            if (searchResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
+            {
+                var text = searchResultPanel.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text;
+                var userGroupName = text.Split(' ')[0];
+                DataBaseManager.UserGroupNameToEdit = userGroupName;
+            }
+        }
         editUserGroupPanel.SetActive(false);
         modifyUserGroupPanel.SetActive(true);
     }

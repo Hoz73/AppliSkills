@@ -30,13 +30,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register">
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="Create skillGroup finished">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Button.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreateSkillGroup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreateSkillGroup.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,19 +54,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ClickedButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/test.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CreateSkillGroup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkillGroup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyUserGroup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" />
       </list>
     </option>
   </component>
@@ -130,7 +136,7 @@
       <workItem from="1603814127871" duration="3707000" />
       <workItem from="1603873644664" duration="7282000" />
       <workItem from="1603886898935" duration="16831000" />
-      <workItem from="1603961288249" duration="7304000" />
+      <workItem from="1603961288249" duration="22370000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -209,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603882850962</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Create skillGroup finished">
+      <created>1603968868865</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1603968868865</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +255,8 @@
     <MESSAGE value="added some TODOs" />
     <MESSAGE value="saved the workspace" />
     <MESSAGE value="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register" />
-    <option name="LAST_COMMIT_MESSAGE" value="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register" />
+    <MESSAGE value="Create skillGroup finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create skillGroup finished" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">
