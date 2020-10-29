@@ -9,6 +9,8 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="AdminManager.cs" t="Include" />
+          <e p="ClickedButton.cs" t="Include" />
+          <e p="CreateSkillGroup.cs" t="Include" />
           <e p="DataBaseManager.cs" t="Include" />
           <e p="LoginManager.cs" t="Include" />
           <e p="SearchManager.cs" t="Include" />

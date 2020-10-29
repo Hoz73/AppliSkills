@@ -30,15 +30,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="saved the workspace">
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DataBaseManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/DataBaseManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Button.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +61,11 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ClickedButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/test.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CreateSkillGroup.cs" />
       </list>
     </option>
   </component>
@@ -127,7 +128,9 @@
       <workItem from="1600949116023" duration="10299000" />
       <workItem from="1601638937747" duration="9309000" />
       <workItem from="1603814127871" duration="3707000" />
-      <workItem from="1603873644664" duration="6997000" />
+      <workItem from="1603873644664" duration="7282000" />
+      <workItem from="1603886898935" duration="16831000" />
+      <workItem from="1603961288249" duration="7304000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -199,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601654512764</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register">
+      <created>1603882850962</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1603882850962</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +241,8 @@
     <MESSAGE value="added modify panels, changed the regex function to a generic function (not finished yet)" />
     <MESSAGE value="added some TODOs" />
     <MESSAGE value="saved the workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="saved the workspace" />
+    <MESSAGE value="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register" />
+    <option name="LAST_COMMIT_MESSAGE" value="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">
@@ -242,20 +253,24 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="399" y="166" width="970" height="491" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1599845847772" />
-    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1600272679985">
+    <state x="727" y="244" key="RiderGenerateDialog" timestamp="1603898658833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600272679985" />
+    <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603898658833" />
     <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1601654221576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="289" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599846367874" />
     <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600184178262" />
     <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601654221576" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1603878842156">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1603962668107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600176506109" />
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603878842156" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603962668107" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603897311456">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603897311456" />
   </component>
 </project>

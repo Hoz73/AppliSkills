@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AdminManager : MonoBehaviour
 {
@@ -127,28 +129,5 @@ public class AdminManager : MonoBehaviour
         modifySkillGroupPanel.SetActive(false);
         modifyUserGroupPanel.SetActive(false);
     }
-    
-    /*public Tuple<int, string, string>Supervisor() //TODO not done yet, waiting the new server 
-    {
-        var sups = dataBase.GetUsers();
-        
-         
-        var listOfSups = new List<Tuple<GameObject, Tuple<int, string, string>>>();
-
-        foreach (var sup in sups)
-        {
-            Debug.Log("yolo");
-            var supervisorButton = Instantiate(supervisorPrefab, listOfSupervisors.transform);
-            listOfSups.Add(new Tuple<GameObject, Tuple<int, string, string> >(supervisorButton, sup));
-        }
-        return null;
-    }*/
-
-    /*public void CreateSkillGroup() //TODO call the function (CreateSkillGroup) from the database
-    {
-
-        Tuple<int, string, string> s = Supervisor();
-        dataBase.CreateSkillGroup(s.Item1,"tableName");
-    }*/
     
 }
