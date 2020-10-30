@@ -22,6 +22,8 @@ public static class DataBaseManager
     }
 
     public static string UserGroupNameToEdit;
+
+    public static string SkillGroupNameToEdit;
     
     
     

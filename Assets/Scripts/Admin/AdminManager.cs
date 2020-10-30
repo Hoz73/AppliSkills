@@ -119,6 +119,16 @@ public class AdminManager : MonoBehaviour
     
     public void ModifySkillGroup()
     {
+        var searchResultPanel = editSkillGroupPanel.transform.GetChild(0).gameObject;
+        for (var i = 0; i < searchResultPanel.transform.childCount; i++)
+        {
+            if (searchResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
+            {
+                var text = searchResultPanel.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text;
+                var skillGroupName = text.Split(' ')[0];
+                DataBaseManager.SkillGroupNameToEdit = skillGroupName;
+            }
+        }
         editSkillGroupPanel.SetActive(false);
         modifySkillGroupPanel.SetActive(true);
     }
