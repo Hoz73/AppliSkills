@@ -74,6 +74,7 @@ public class AdminManager : MonoBehaviour
     
     public void Disconnect()
     {
+        DataBaseManager.LogOut();
         SceneManager.LoadScene("LogIn");
     }
 
@@ -101,6 +102,7 @@ public class AdminManager : MonoBehaviour
         editUserGroupPanel.SetActive(true);
     }
     
+    
     public void ModifyUserGroup()
     {
         var searchResultPanel = editUserGroupPanel.transform.GetChild(0).gameObject;
@@ -125,7 +127,9 @@ public class AdminManager : MonoBehaviour
             if (searchResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
             {
                 var text = searchResultPanel.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text;
-                var skillGroupName = text.Split(' ')[0];
+                
+                var skillGroupName = text;
+                //var skillGroupName = text.Split(' ')[0];
                 DataBaseManager.SkillGroupNameToEdit = skillGroupName;
             }
         }

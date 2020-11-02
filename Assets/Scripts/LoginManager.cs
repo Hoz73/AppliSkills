@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 
@@ -31,14 +32,13 @@ public class LoginManager : MonoBehaviour
     [Space(30)]
     [SerializeField]private GameObject _signUpPanel;
     [SerializeField] private GameObject _signInPanel;
-    
-    //DataBase instance
-    //private DataBaseManager dataBase;
 
-   /*void Awake()
+    private bool _teacher;
+
+    void Awake()
     {
-        dataBase = new DataBaseManager();
-    }*/
+        _teacher = false;
+    }
 
     public bool CorrectInformationToSignUp()
     {
@@ -82,6 +82,11 @@ public class LoginManager : MonoBehaviour
             Debug.Log("the information are not correct");
     }
 
+    public void ToggleChanged()
+    {
+        _teacher = !_teacher;
+    }
+
     IEnumerator LogIn()
     {
         WWWForm form = new WWWForm();
@@ -93,7 +98,17 @@ public class LoginManager : MonoBehaviour
         {
             Debug.Log("Logged in successfully");
             DataBaseManager.UserName = www.text.Split('\t')[1];
+            DataBaseManager.Role = www.text.Split('\t')[2];
             Debug.Log( "welcome "+DataBaseManager.UserName);
+            if(DataBaseManager.Role == "admin")
+                //SceneManager.LoadScene("AdminInterface"); //TODO almost finished (Hamze)
+                Debug.Log("admin");
+            if(DataBaseManager.Role == "teacher")
+                //SceneManager.LoadScene("TeacherInterface"); //TODO not finished yet (Camille)
+                Debug.Log("teacher");
+            else
+                //SceneManager.LoadScene("StudentInterface"); //TODO almost finished (Robin)
+                Debug.Log("student");
         }
         else
         {
@@ -103,13 +118,15 @@ public class LoginManager : MonoBehaviour
 
     IEnumerator Registers()
     {
+        Debug.Log(_teacher);
         WWWForm form = new WWWForm();
         form.AddField("firstName",firstName.text);
         form.AddField("lastName",lastName.text);
         form.AddField("mail",signUpMail.text);
         form.AddField("phone",phoneNumber.text);
         form.AddField("password",signUpPassword.text);
-       
+        form.AddField("type", _teacher ? "teacher" : "student");
+
         WWW www = new WWW("http://localhost/sql/register.php", form);
         yield return www;
         if(www.text =="0")

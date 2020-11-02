@@ -30,12 +30,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="modify userGroup(add/delete)student has finished">
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="finished (add/delete) skill (to/from) userGroup">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ClickedButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/test.cs" />
@@ -66,9 +66,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyUserGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
       </list>
     </option>
   </component>
@@ -134,7 +135,7 @@
       <workItem from="1603873644664" duration="7282000" />
       <workItem from="1603886898935" duration="16831000" />
       <workItem from="1603961288249" duration="23872000" />
-      <workItem from="1604047444391" duration="6147000" />
+      <workItem from="1604047444391" duration="16488000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -227,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603990211788</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="finished (add/delete) skill (to/from) userGroup">
+      <created>1604054092888</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1604054092888</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +270,8 @@
     <MESSAGE value="created server php and finished the search functions (skill, user, skillGroup, userGroup) + Login/register" />
     <MESSAGE value="Create skillGroup finished" />
     <MESSAGE value="modify userGroup(add/delete)student has finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify userGroup(add/delete)student has finished" />
+    <MESSAGE value="finished (add/delete) skill (to/from) userGroup" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished (add/delete) skill (to/from) userGroup" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">

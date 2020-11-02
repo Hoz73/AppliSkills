@@ -113,7 +113,11 @@ public class ModifyPanel : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("skillGroupName", DataBaseManager.SkillGroupNameToEdit);
-        form.AddField("newSkillGroupName",newNameSkillGroupInputField.text); //TODO later
+        if (newNameSkillGroupInputField.text.Length > 0)
+        {
+            DataBaseManager.SkillGroupNameToEdit = newNameSkillGroupInputField.text;
+            form.AddField("newSkillGroupName",newNameSkillGroupInputField.text);
+        }
         form.AddField("skillName",skillName);
         WWW www = new WWW("http://localhost/sql/addSkillToSkillGroup.php", form);
         yield return www;
@@ -131,7 +135,11 @@ public class ModifyPanel : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("userGroupName", DataBaseManager.UserGroupNameToEdit);
-        form.AddField("newUserGroupName",newNameUserGroupInputField.text); //TODO later
+        if (newNameUserGroupInputField.text.Length > 0)
+        {
+            DataBaseManager.UserGroupNameToEdit = newNameUserGroupInputField.text;
+            form.AddField("newUserGroupName",newNameUserGroupInputField.text);
+        }
         form.AddField("studentFirstName",firstName);
         form.AddField("studentLastName",lastName);
         WWW www = new WWW("http://localhost/sql/addStudentToUserGroup.php", form);
@@ -150,7 +158,11 @@ public class ModifyPanel : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("skillGroupName", DataBaseManager.SkillGroupNameToEdit);
-        form.AddField("newSkillGroupName",newNameSkillGroupInputField.text); //TODO later
+        if (newNameSkillGroupInputField.text.Length > 0)
+        {
+            DataBaseManager.SkillGroupNameToEdit = newNameSkillGroupInputField.text;
+            form.AddField("newSkillGroupName",newNameSkillGroupInputField.text);
+        }
         form.AddField("skillName",skillName);
         WWW www = new WWW("http://localhost/sql/deleteSkillFromSkillGroup.php", form);
         yield return www;
@@ -168,10 +180,14 @@ public class ModifyPanel : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("userGroupName", DataBaseManager.UserGroupNameToEdit);
-        form.AddField("newUserGroupName",newNameUserGroupInputField.text); //TODO later
+        if (newNameUserGroupInputField.text.Length > 0)
+        {
+            DataBaseManager.UserGroupNameToEdit = newNameUserGroupInputField.text;
+            form.AddField("newUserGroupName",newNameUserGroupInputField.text);
+        }
         form.AddField("studentFirstName",firstName);
         form.AddField("studentLastName",lastName);
-        WWW www = new WWW("http://localhost/sql/deleteStudentToUserGroup.php", form);
+        WWW www = new WWW("http://localhost/sql/deleteStudentFromUserGroup.php", form);
         yield return www;
         if (www.text == "0")
         {
