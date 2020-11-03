@@ -19,10 +19,11 @@ public class AdminManager : MonoBehaviour
     [Header("ADD PANELS")]
     [Space(30)]
     [SerializeField] private GameObject addSkillGroupPanel;
+    [SerializeField] private GameObject addSkillPanel;
     [SerializeField] private GameObject addUserGroupPanel;
     [SerializeField] private TMP_InputField nameSkillGroupInputField;
     [SerializeField] private TMP_InputField nameUserGroupInputField;
-    
+
     //Edit panels
     [Header("EDIT PANELS")]
     [Space(30)]
@@ -54,11 +55,13 @@ public class AdminManager : MonoBehaviour
     [SerializeField] private GameObject listOfSupervisors;
     
     
-
-   /* void Awake()
+   
+    public void BySkillButton()
     {
-        dataBase = new DataBaseManager();
-    }*/
+        adminPanel.SetActive(false);
+        addSkillPanel.SetActive(true);
+        
+    }
     public void BySkillGroupButton()
     {
         adminPanel.SetActive(false);
@@ -152,6 +155,8 @@ public class AdminManager : MonoBehaviour
         
         modifySkillGroupPanel.SetActive(false);
         modifyUserGroupPanel.SetActive(false);
+        
+        addSkillPanel.SetActive(false);
     }
     
 }

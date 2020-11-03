@@ -10,6 +10,7 @@
         <e p="Scripts" t="Include">
           <e p="Admin" t="Include">
             <e p="AdminManager.cs" t="Include" />
+            <e p="CreateSkill.cs" t="Include" />
             <e p="CreateSkillGroup.cs" t="Include" />
             <e p="CreateUserGroup.cs" t="Include" />
             <e p="ModifyPanel.cs" t="Include" />
