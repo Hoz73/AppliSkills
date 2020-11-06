@@ -15,6 +15,8 @@ public static class DataBaseManager
 
     public static string UserName;
 
+    public static string UserId;
+
     public static string Role;
     
     public static bool LoggedIn { get {return UserName != null;} }

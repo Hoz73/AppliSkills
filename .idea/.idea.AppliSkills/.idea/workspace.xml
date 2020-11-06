@@ -31,11 +31,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="finished createSkill">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Button1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Button1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Admin.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ClickedButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +60,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -66,10 +74,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkill.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" />
       </list>
     </option>
   </component>
@@ -303,12 +312,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603898658833" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1601654221576">
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1604666330985">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="289" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599846367874" />
     <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600184178262" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601654221576" />
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604666330985" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1604423135012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -19,6 +19,9 @@
           <e p="DataBaseManager.cs" t="Include" />
           <e p="LoginManager.cs" t="Include" />
           <e p="SearchManager.cs" t="Include" />
+          <e p="Student" t="Include">
+            <e p="StudentManager.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
