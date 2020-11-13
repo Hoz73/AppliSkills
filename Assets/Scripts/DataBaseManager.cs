@@ -19,16 +19,22 @@ public static class DataBaseManager
 
     public static string Role;
     
+    public static string UserGroupNameToEdit;
+
+    public static string SkillGroupNameToEdit;
+    
     public static bool LoggedIn { get {return UserName != null;} }
 
     public static void LogOut()
     {
         UserName = null;
+        UserId = null;
+        Role = null;
+        UserGroupNameToEdit = null;
+        SkillGroupNameToEdit = null;
     }
 
-    public static string UserGroupNameToEdit;
-
-    public static string SkillGroupNameToEdit;
+    
     
     
     

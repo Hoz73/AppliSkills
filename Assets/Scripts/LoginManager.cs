@@ -96,11 +96,9 @@ public class LoginManager : MonoBehaviour
         yield return www;
         if(www.text[0] =='0')
         {
-            Debug.Log("Logged in successfully");
             DataBaseManager.UserName = www.text.Split('\t')[1];
             DataBaseManager.Role = www.text.Split('\t')[2];
             DataBaseManager.UserId = www.text.Split('\t')[3];
-            Debug.Log( "welcome "+DataBaseManager.UserName);
             if(DataBaseManager.Role == "admin")
                 //SceneManager.LoadScene("AdminInterface"); //TODO almost finished (Hamze)
                 Debug.Log("admin");
@@ -109,7 +107,6 @@ public class LoginManager : MonoBehaviour
                 Debug.Log("teacher");
             else
                 SceneManager.LoadScene("StudentInterface"); //TODO almost finished (Robin)
-                //Debug.Log("student");
         }
         else
         {
@@ -119,7 +116,6 @@ public class LoginManager : MonoBehaviour
 
     IEnumerator Registers()
     {
-        Debug.Log(_teacher);
         WWWForm form = new WWWForm();
         form.AddField("firstName",firstName.text);
         form.AddField("lastName",lastName.text);

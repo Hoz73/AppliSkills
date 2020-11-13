@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StudentManager : MonoBehaviour
@@ -68,11 +69,38 @@ public class StudentManager : MonoBehaviour
         skillPanel.SetActive(false);
         skillGroupPanel.SetActive(false);
         allSkillGroupPanel.SetActive(false);
+        
+        ClearResultPanels();
     }
 
     public void Disconnect()
     {
-        Debug.Log("Logout");
+        SceneManager.LoadScene("Login");
+        DataBaseManager.LogOut();
+    }
+
+
+    public void SwitchState()
+    {
+        for (var i = 0; i < skillResultPanel.transform.childCount; i++)
+        {
+            if (skillResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
+            {
+                var text = skillResultPanel.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text;
+                string[] afterSplit = text.Split(' ');
+                string state = afterSplit[afterSplit.Length - 1];
+                
+                string skillName = null;
+                for (int j = 0; j < afterSplit.Length-1; j++)
+                {
+                    skillName += afterSplit[j];
+                    if (j < afterSplit.Length - 2) skillName += ' ';
+                }
+
+                StartCoroutine(UpdateState(skillName,state));
+                ClearResultPanels();
+            }
+        }
     }
 
 
@@ -102,7 +130,6 @@ public class StudentManager : MonoBehaviour
             form.AddField("groupName", groupName);
             WWW www = new WWW("http://localhost/sql/student/addSkillGroupToStudent.php", form);
             yield return www;
-            Debug.Log(www.text);
             if (www.text[0] == '0')
             {
                 Debug.Log("yes !!!!!!");
@@ -131,6 +158,24 @@ public class StudentManager : MonoBehaviour
         StartCoroutine(AllSkill(allSkillGroupResultPanel, allSkillGroupSearchInputField.text));
     }
 
+    public void ClearResultPanels()
+    {
+        for (var i = 0; i < skillGroupResultPanel.transform.childCount; i++)
+        {
+            Destroy(skillGroupResultPanel.transform.GetChild(i).gameObject);
+        }
+        
+        for (var i = 0; i < allSkillGroupResultPanel.transform.childCount; i++)
+        {
+            Destroy(allSkillGroupResultPanel.transform.GetChild(i).gameObject);
+        }
+        
+        for (var i = 0; i < skillResultPanel.transform.childCount; i++)
+        {
+            Destroy(skillResultPanel.transform.GetChild(i).gameObject);
+        }
+    }
+
     IEnumerator SkillGroup(GameObject resultPanel, string inputField)
     {
         WWWForm form = new WWWForm();
@@ -139,7 +184,6 @@ public class StudentManager : MonoBehaviour
         
         WWW www = new WWW("http://localhost/sql/student/searchSkillGroup.php", form);
         yield return www;
-        Debug.Log(www.text);
         if (www.text[0] == '0')
         {
             var searchResultsList = new List<Tuple<string, GameObject>>();
@@ -210,7 +254,6 @@ public class StudentManager : MonoBehaviour
         form.AddField("regex",inputField);
         WWW www = new WWW("http://localhost/sql/student/searchAllSkillGroup.php", form);
         yield return www;
-        Debug.Log(www.text);
         if (www.text[0] == '0')
         {
             var searchResultsList = new List<Tuple<string, GameObject>>();
@@ -237,6 +280,40 @@ public class StudentManager : MonoBehaviour
             Debug.Log("search all skill group has failed, error : "+ www.text);
         }
     }
+
+    IEnumerator UpdateState(string skillName, string state)
+    {
+        string newState = null; 
+        switch (state)
+        {
+            case "invalid":
+                newState = "selfValidated";
+                break;
+            case "selfValidated":
+                newState = "invalid";
+                break;
+        }
+        if (newState != null)
+        {
+            WWWForm form = new WWWForm();
+            form.AddField("state",newState);
+            form.AddField("skillName",skillName);
+            form.AddField("idUser",DataBaseManager.UserId);
+            
+            WWW www = new WWW("http://localhost/sql/student/updateSkillState.php", form);
+            yield return www;
+            if (www.text[0] == '0')
+                Debug.Log(" you have switch your skill: "+ skillName+ "  to : " + newState);
+        }
+        else
+        {
+            Debug.Log(" you can't invalid a skill validated by the teacher");
+        }
+
+        
+        
+    }
+        
     
     
 }
