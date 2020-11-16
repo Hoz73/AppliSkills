@@ -30,12 +30,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="Finished the features for student.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="added scroll bars in StudentInterface and AdminInterface">
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +48,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hamze/Desktop/AppliSkills/AppliSkills/Assets/Scenes/AdminInterface.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hamze/Desktop/AppliSkills/AppliSkills/Assets/Scenes/StudentInterface.unity" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -142,7 +140,7 @@
       <workItem from="1604849442748" duration="6639000" />
       <workItem from="1605199151812" duration="2792000" />
       <workItem from="1605279060700" duration="5409000" />
-      <workItem from="1605540572230" duration="1692000" />
+      <workItem from="1605540572230" duration="2365000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -277,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605284756322</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added scroll bars in StudentInterface and AdminInterface">
+      <created>1605544361415</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1605544361415</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +323,8 @@
     <MESSAGE value="created the interface student + search functions" />
     <MESSAGE value="created All skills panel + add (groupSkill, skill ) to user from as a student" />
     <MESSAGE value="Finished the features for student." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the features for student." />
+    <MESSAGE value="added scroll bars in StudentInterface and AdminInterface" />
+    <option name="LAST_COMMIT_MESSAGE" value="added scroll bars in StudentInterface and AdminInterface" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">
