@@ -31,6 +31,9 @@ public class AdminManager : MonoBehaviour
     [SerializeField] private GameObject editUserGroupPanel;
     [SerializeField] private TMP_InputField searchInputFieldEditSkillGroup;
     [SerializeField] private TMP_InputField searchInputFieldEditUserGroup;
+    [SerializeField] private GameObject searchResultPanelSkillGroup;
+    [SerializeField] private GameObject searchResultPanelUserGroup;
+    
     
     
     // Modify panels
@@ -108,7 +111,7 @@ public class AdminManager : MonoBehaviour
     
     public void ModifyUserGroup()
     {
-        var searchResultPanel = editUserGroupPanel.transform.GetChild(0).gameObject;
+        var searchResultPanel = searchResultPanelUserGroup;
         for (var i = 0; i < searchResultPanel.transform.childCount; i++)
         {
             if (searchResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
@@ -124,7 +127,7 @@ public class AdminManager : MonoBehaviour
     
     public void ModifySkillGroup()
     {
-        var searchResultPanel = editSkillGroupPanel.transform.GetChild(0).gameObject;
+        var searchResultPanel = searchResultPanelSkillGroup;
         for (var i = 0; i < searchResultPanel.transform.childCount; i++)
         {
             if (searchResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
