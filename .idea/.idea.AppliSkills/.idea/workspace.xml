@@ -30,7 +30,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="added Quit icons" />
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="added Poll function without Zip Files">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,11 +53,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hamze/Desktop/AppliSkills/AppliSkills/Assets/Scenes/AdminInterface.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hamze/Desktop/AppliSkills/AppliSkills/Assets/Scenes/StudentInterface.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -66,8 +72,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkill.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" />
       </list>
     </option>
   </component>

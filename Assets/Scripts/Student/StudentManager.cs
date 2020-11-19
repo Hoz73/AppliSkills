@@ -31,7 +31,13 @@ public class StudentManager : MonoBehaviour
     [Header("PREFABS")]
     [Space(30)]
     [SerializeField] private GameObject button;
+    [SerializeField] private TMP_Text userConnectedText;
 
+    
+    void Awake()
+    {
+        userConnectedText.text = "Connected as : " + DataBaseManager.UserName;
+    }
     
     public void SkillGroupPanelActivate()
     {

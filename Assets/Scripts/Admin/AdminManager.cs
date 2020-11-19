@@ -57,8 +57,13 @@ public class AdminManager : MonoBehaviour
     [Space(30)]
     [SerializeField] private GameObject listOfSupervisors;
     
-    
-   
+    [SerializeField] private TMP_Text userConnectedText;
+
+
+    void Awake()
+    {
+        userConnectedText.text = "Connected as : " + DataBaseManager.UserName;
+    }
     public void BySkillButton()
     {
         adminPanel.SetActive(false);

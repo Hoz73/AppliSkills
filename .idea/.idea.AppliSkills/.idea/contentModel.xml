@@ -7,6 +7,9 @@
       <e p="AppliSkills.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="ColorfulButtons" t="Include">
+          <e p="Credits.txt" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="Admin" t="Include">
             <e p="AdminManager.cs" t="Include" />
