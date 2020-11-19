@@ -6,20 +6,57 @@ using System.IO;
 using UnityEngine;
 using MySql.Data.MySqlClient;
 using TMPro;
+//using UnityEditor.MemoryProfiler;
 using UnityEngine.UI;
 
 
-public class DataBaseManager : MonoBehaviour
+public static class DataBaseManager
 {
+
+    public static string UserName;
+
+    public static string UserId;
+
+    public static string Role;
+    
+    public static string UserGroupNameToEdit;
+
+    public static string SkillGroupNameToEdit;
+    
+    public static bool LoggedIn { get {return UserName != null;} }
+
+    public static void LogOut()
+    {
+        UserName = null;
+        UserId = null;
+        Role = null;
+        UserGroupNameToEdit = null;
+        SkillGroupNameToEdit = null;
+    }
+
+    public static string ChosenSkill;
+
+    
+    
+    
+    
+    
+    
+    
     // information needed for the connection with the DataBase
-    public string Host; 
+    //[Header("THE CONNECTION TO THE DATABASE")]
+
+    /*public string Host; 
     public string DataBase;
     public string Username;
     public string Password;
     public Text State;
-    private MySqlConnection connection;
+    private MySqlConnection connection;*/
+    [Header("MANAGERS")]
+    [Space(30)]
+    public static LoginManager LoginManager;
 
-    struct User
+    public struct User
     {
         public int ID;
         public string FirstName;
@@ -27,35 +64,47 @@ public class DataBaseManager : MonoBehaviour
         public string Mail;
         public int Phone;
         public string Password;
+        public Type Type;
     }
-    User ConnectedUser;
 
-    public void ConnectDB()
+    public enum Type
     {
-        string con = "Server=" + Host +
-                     ";DATABASE=" + DataBase + 
-                     ";User ID=" + Username + 
-                     ";Password=" + Password + 
-                     ";Pooling=true;Charset=utf8;";
-        try
-        {
-            connection = new MySqlConnection(con);
-            connection.Open();
-            State.text = connection.State.ToString();
-        }catch (IOException e)
-        {
-            State.text = e.ToString();
-        }
+        Student,
+        Supervisor,
+        Admin,
     }
 
-    void OnApplicationQuit()
+    //User ConnectedUser;
+
+    //constructor 
+    //public DataBaseManager(){}
+
+    /*public void ConnectDB()
+     {
+         string con = "Server=" + Host +
+                      ";DATABASE=" + DataBase + 
+                      ";User ID=" + Username + 
+                      ";Password=" + Password + 
+                      ";Pooling=true;Charset=utf8;";
+         try
+         {
+             connection = new MySqlConnection(con);
+             connection.Open();
+             State.text = connection.State.ToString();
+         }catch (IOException e)
+         {
+             State.text = e.ToString();
+         }
+     }*/
+
+    /*void OnApplicationQuit()
     {
         Debug.Log("Shutdown connection");
         if (connection != null && connection.State.ToString() != "Closed")
             connection.Close();
-    }
-    
-    public void Register(string firstName, string lastName, string mail, string phone, string password)
+    }*/
+
+    /*public void Register(string firstName, string lastName, string mail, string phone, string password)
     {
         bool exist = false;
         
@@ -81,7 +130,6 @@ public class DataBaseManager : MonoBehaviour
         catch (IOException e)
         {
             State.text = e.ToString();
-            throw;
         }
         
         
@@ -89,24 +137,26 @@ public class DataBaseManager : MonoBehaviour
         if (!exist)
         {
             String commandInsert =
-                "INSERT INTO `user`(`firstName`, `lastName`, `mail`, `phone`, `password`) VALUES ('"+firstName+"','"+lastName+"','"+mail+"','"+phone+"','"+password+"')";
+                "INSERT INTO `user`(`firstName`, `lastName`, `mail`, `phone`, `password`, `type`) VALUES ('"+firstName+"','"+lastName+"','"+mail+"','"+phone+"','"+password+"','"+Type.Student+"')";
         
             MySqlCommand cmdInsert = new MySqlCommand(commandInsert, connection);
             try
             {
                 cmdInsert.ExecuteReader();
                 State.text = "Register successful";
+                LoginManager.SignInActivate();
             }
             catch (IOException e)
             {
-                State.text = cmdInsert.ToString();
+                State.text = e.ToString();
             }
             cmdInsert.Dispose();
         }
-        connection.Close();
-    }
+        connection.Close();*/
 
-    public void SignIn(string mail, string password) //TODO not done yet
+
+
+    /*public void SignIn(string name, string password) 
     {
         ConnectDB();
         string pass = null;
@@ -119,7 +169,7 @@ public class DataBaseManager : MonoBehaviour
 
             while (myRider.Read())
             {
-                pass = myRider["password"].ToString();
+                pass = myRider["hash"].ToString();
                 if (pass == password)
                 {
                     ConnectedUser.ID = (int) myRider["id"];
@@ -127,7 +177,8 @@ public class DataBaseManager : MonoBehaviour
                     ConnectedUser.FirstName = myRider["firstName"].ToString();
                     ConnectedUser.LastName = myRider["lastName"].ToString();
                     ConnectedUser.Mail = myRider["mail"].ToString();
-                    ConnectedUser.Password = myRider["password"].ToString();
+                    ConnectedUser.Password = myRider["hash"].ToString();
+                    ConnectedUser.Type =  (Type) Enum.Parse(typeof(Type), myRider["type"].ToString());
 
                     State.text = "Welcome " + ConnectedUser.FirstName +" "+ ConnectedUser.LastName + " !";
                 }
@@ -140,10 +191,109 @@ public class DataBaseManager : MonoBehaviour
             cmdSelect.Dispose();
             myRider.Close();
         }
+    }*/
+
+    /*public List<User> RegexSearch(String regex, string tableName, string fieldName) //TODO Modified and not finished yet (waiting the new server + the final DB)
+    {
+        List<User> results = new List<User>();
+        ConnectDB();
+        try {
+        
+            if (regex.Length >= 1) {
+                //String sqlRequest = "SELECT * FROM user WHERE firstName REGEXP '^" + regex + "'";
+                String sqlRequest = "SELECT * FROM "+ tableName +" WHERE "+ fieldName +" REGEXP '^" + regex + "'";
+                
+                String commandSelect = sqlRequest;
+                MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
+                MySqlDataReader myRider = cmdSelect.ExecuteReader();
+
+                while (myRider.Read())
+                {
+                    if (tableName == "user")
+                    {
+                        
+                    }else if (tableName == "skill")
+                    {
+                        
+                    }else if (tableName == "userGroup")
+                    {
+                        
+                    }else if (tableName == "skillGroup")
+                    {
+                        
+                    }
+                    /*
+                    User u;
+                    u.FirstName = myRider["firstName"].ToString();
+                    u.LastName = myRider["lastName"].ToString();
+                    u.ID =  (int) myRider["id"];
+                    u.Phone = (int) myRider["Phone"];
+                    u.Mail = myRider["mail"].ToString();
+                    u.Password = myRider["password"].ToString();
+                    u.Type = (Type) Enum.Parse(typeof(Type), myRider["type"].ToString()); // TODO haven't been tested yet
+
+                    results.Add(u);
+                    
+                }
+                cmdSelect.Dispose();
+                myRider.Close();
+            }
+        }
         catch (IOException e)
         {
             State.text = e.ToString();
         }
+
         connection.Close();
-    }
+
+        return results;
+    }*/
+
+    /*public List<Tuple<int, string, string>> GetUsers()
+    {
+        var res = new List <Tuple<int, string, string>>();
+        ConnectDB();
+        try
+        {
+            String sqlRequest = "SELECT * FROM user WHERE type = '" + Type.Supervisor + "'";
+            String commandSelect = sqlRequest;
+            MySqlCommand cmdSelect = new MySqlCommand(commandSelect, connection);
+            MySqlDataReader myRider = cmdSelect.ExecuteReader();
+
+            while (myRider.Read())
+            {
+                var sup = new Tuple<int, string, string>((int) myRider["id"], myRider["firstName"].ToString(), myRider["LastName"].ToString());
+                res.Add(sup);
+            }
+            cmdSelect.Dispose();
+            myRider.Close();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        connection.Close();
+        
+        return res;
+    }*/
+
+    /*public void CreateSkillGroup(int idSupervisor, string tableName) //TODO not tested yet
+    {
+        String commandInsert = "";
+        MySqlCommand cmdInsert = new MySqlCommand(commandInsert, connection);
+        
+        try
+        {
+            cmdInsert.ExecuteReader();
+            State.text = "Register successful";
+            LoginManager.SignInActivate();
+        }
+        catch (IOException e)
+        {
+            State.text = e.ToString();
+        }
+        cmdInsert.Dispose();
+        connection.Close();
+    }*/
 }
