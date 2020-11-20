@@ -19,6 +19,7 @@
             <e p="ModifyPanel.cs" t="Include" />
           </e>
           <e p="ClickedButton.cs" t="Include" />
+          <e p="ClosePanel.cs" t="Include" />
           <e p="DataBaseManager.cs" t="Include" />
           <e p="LoginManager.cs" t="Include" />
           <e p="SearchManager.cs" t="Include" />

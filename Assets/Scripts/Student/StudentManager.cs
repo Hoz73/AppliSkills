@@ -31,9 +31,15 @@ public class StudentManager : MonoBehaviour
     [Header("PREFABS")]
     [Space(30)]
     [SerializeField] private GameObject button;
-    [SerializeField] private TMP_Text userConnectedText;
-
     
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text userConnectedText;
+    //[SerializeField] private GameObject panelText;
+    [SerializeField] private TMP_Text errorText;
+
+
+
     void Awake()
     {
         userConnectedText.text = "Connected as : " + DataBaseManager.UserName;
@@ -108,8 +114,7 @@ public class StudentManager : MonoBehaviour
             }
         }
     }
-
-
+    
     public void AddSkillGroupToStudent()
     {
         var groupList =new List<string>();
@@ -143,6 +148,8 @@ public class StudentManager : MonoBehaviour
             else
             {
                 Debug.Log("NOOOOOON !!!!!!" + www.text);
+                errorText.text = "Error : " + www.text;
+                errorText.transform.parent.gameObject.SetActive(true);
             }
         }
         
@@ -216,6 +223,8 @@ public class StudentManager : MonoBehaviour
         else
         {
             Debug.Log("search skillGroup has failed, error : "+ www.text);
+            errorText.text = "No match : " + www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
         }
     }
 
@@ -251,6 +260,8 @@ public class StudentManager : MonoBehaviour
         else
         {
             Debug.Log("search skill has failed, error : "+ www.text);
+            errorText.text = "No match : " + www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
         }
     }
 
@@ -284,6 +295,8 @@ public class StudentManager : MonoBehaviour
         else
         {
             Debug.Log("search all skill group has failed, error : "+ www.text);
+            errorText.text = "No match : " + www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
         }
     }
 
@@ -314,6 +327,8 @@ public class StudentManager : MonoBehaviour
         else
         {
             Debug.Log(" you can't invalid a skill validated by the teacher");
+            errorText.text = "you can't invalid a skill validated by the teacher" ;
+            errorText.transform.parent.gameObject.SetActive(true);
         }
 
         
