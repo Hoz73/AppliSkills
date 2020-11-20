@@ -33,6 +33,7 @@ public class SearchManager : MonoBehaviour
     [SerializeField] private GameObject button;
 
 
+
     public void RegexSearchFromInputFieldUser()
     {
         StartCoroutine(RegexUsers(searchResultsPanelUser, searchInputFieldUser.text));
@@ -109,7 +110,8 @@ public class SearchManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("search users has failed, error : "+ www.text);
+            
+            Debug.Log("search skills has failed, error : "+ www.text);
         }
     }
     
@@ -146,6 +148,7 @@ public class SearchManager : MonoBehaviour
         }
         else
         {
+      
             Debug.Log("search users has failed, error : "+ www.text);
         }
     }
@@ -181,7 +184,8 @@ public class SearchManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("search skillGroup has failed, error : "+ www.text);
+
+            Debug.Log("search skillGroups has failed, error : "+ www.text);
         }
     }
 
@@ -216,6 +220,7 @@ public class SearchManager : MonoBehaviour
         }
         else
         {
+
             Debug.Log("search userGroup has failed, error : "+ www.text);
         }
     }
@@ -252,7 +257,8 @@ public class SearchManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("search userGroup has failed, error : "+ www.text);
+
+            Debug.Log("search student has failed, error : "+ www.text);
         }
     }
     
@@ -288,7 +294,8 @@ public class SearchManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("search userGroup has failed, error : "+ www.text);
+
+            Debug.Log("search teacher has failed, error : "+ www.text);
         }
     }
     

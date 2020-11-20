@@ -35,7 +35,6 @@ public class StudentManager : MonoBehaviour
     [Header("OTHERS")]
     [Space(30)]
     [SerializeField] private TMP_Text userConnectedText;
-    //[SerializeField] private GameObject panelText;
     [SerializeField] private TMP_Text errorText;
 
 

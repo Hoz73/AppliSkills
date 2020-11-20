@@ -7,6 +7,11 @@ public class CreateSkill : MonoBehaviour
 {
     [SerializeField] private TMP_InputField nameInputField;
     [SerializeField] private TMP_InputField descriptionInputField;
+    
+        
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text errorText;
 
     public void ApplyCreateSkill()
     {
@@ -24,9 +29,13 @@ public class CreateSkill : MonoBehaviour
         if (www.text == "0")
         {
             Debug.Log("the skill : "+ skillName +" has been created successfully");
+            errorText.text = "the skill : "+ skillName +" has been created successfully";
+            errorText.transform.parent.gameObject.SetActive(true);
         }
         else
         {
+            errorText.text = "Error : " + www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("ERROR : " +www.text);
         }
     }

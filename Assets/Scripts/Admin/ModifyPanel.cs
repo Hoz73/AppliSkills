@@ -16,6 +16,10 @@ public class ModifyPanel : MonoBehaviour
     [SerializeField] private GameObject listOfSkillToAdd;
     [SerializeField] private GameObject listOfSkillToDelete;
     
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text errorText;
+    
     
 
     
@@ -25,7 +29,12 @@ public class ModifyPanel : MonoBehaviour
         var delete = ChangesUserGroup(listOfStudentToDelete,"delete");
 
         if (add + delete == 0)
+        {
+            errorText.text = "no changes to do";
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("no changes to do");
+        }
+            
         
     }
 
@@ -33,9 +42,14 @@ public class ModifyPanel : MonoBehaviour
     {
         var add = ChangesSkillGroup(listOfSkillToAdd, "add");
         var delete = ChangesSkillGroup(listOfSkillToDelete, "delete");
-        
-        if(add + delete ==0)
+
+        if (add + delete == 0)
+        {
+            errorText.text = "no changes to do";
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("no changes to do");
+        }
+            
     }
 
     public int ChangesSkillGroup(GameObject list, string edit)
@@ -123,10 +137,14 @@ public class ModifyPanel : MonoBehaviour
         yield return www;
         if (www.text == "0")
         {
+            errorText.text = "the skill ( "+ skillName +" ) has been added successfully to the group :" + DataBaseManager.SkillGroupNameToEdit;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("the skill ( "+ skillName +" ) has been added successfully to the group :" + DataBaseManager.SkillGroupNameToEdit);
         }
         else
         {
+            errorText.text = "ERROR : " +www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("ERROR : " +www.text);
         }
     }
@@ -146,10 +164,14 @@ public class ModifyPanel : MonoBehaviour
         yield return www;
         if (www.text == "0")
         {
+            errorText.text = "the student ( "+ firstName +" "+ lastName +" ) has been added successfully to the group :" + DataBaseManager.UserGroupNameToEdit;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("the student ( "+ firstName +" "+ lastName +" ) has been added successfully to the group :" + DataBaseManager.UserGroupNameToEdit);
         }
         else
         {
+            errorText.text = "ERROR : " +www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("ERROR : " +www.text);
         }
     }
@@ -168,10 +190,14 @@ public class ModifyPanel : MonoBehaviour
         yield return www;
         if (www.text == "0")
         {
+            errorText.text = "the skill ( "+ skillName +" ) has been deleted successfully from the group :" + DataBaseManager.SkillGroupNameToEdit;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("the skill ( "+ skillName +" ) has been deleted successfully from the group :" + DataBaseManager.SkillGroupNameToEdit);
         }
         else
         {
+            errorText.text = "ERROR : " +www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("ERROR : " +www.text);
         }
     }
@@ -191,10 +217,14 @@ public class ModifyPanel : MonoBehaviour
         yield return www;
         if (www.text == "0")
         {
+            errorText.text = "the student ( "+ firstName +" "+ lastName +" ) has been deleted successfully from the group :" + DataBaseManager.UserGroupNameToEdit;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("the student ( "+ firstName +" "+ lastName +" ) has been deleted successfully from the group :" + DataBaseManager.UserGroupNameToEdit);
         }
         else
         {
+            errorText.text = "ERROR : " +www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("ERROR : " +www.text);
         }
     }

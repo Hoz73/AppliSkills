@@ -32,6 +32,10 @@ public class LoginManager : MonoBehaviour
     [Space(30)]
     [SerializeField]private GameObject _signUpPanel;
     [SerializeField] private GameObject _signInPanel;
+    
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text errorText;
 
     private bool _teacher;
 
@@ -68,10 +72,15 @@ public class LoginManager : MonoBehaviour
     
     public void InformationToVerifyToSignIn()
     {
-        if(CorrectInformationToSignIn())
+        if (CorrectInformationToSignIn())
             StartCoroutine(LogIn());
         else
-            Debug.Log("the information are not correct");   
+        {
+            errorText.text = "The information is not correct";
+            errorText.transform.parent.gameObject.SetActive(true);
+            Debug.Log("the information are not correct");  
+        }
+             
     }
 
     public void InformationToVerifyToSignUp()
@@ -79,7 +88,12 @@ public class LoginManager : MonoBehaviour
         if (CorrectInformationToSignUp())
             StartCoroutine(Registers());
         else
+        {
+            errorText.text = "The information is not correct";
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("the information are not correct");
+        }
+            
     }
 
     public void ToggleChanged()
@@ -110,6 +124,8 @@ public class LoginManager : MonoBehaviour
         }
         else
         {
+            errorText.text = "logging in failed, error : "+ www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("logging in failed, error : "+ www.text);
         }
     }
@@ -133,6 +149,8 @@ public class LoginManager : MonoBehaviour
         }
         else
         {
+            errorText.text = "User creation failed, error :"+ www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("User creation failed, error : "+ www.text);
         }
     }

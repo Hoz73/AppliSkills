@@ -57,6 +57,8 @@ public class AdminManager : MonoBehaviour
     [Space(30)]
     [SerializeField] private GameObject listOfSupervisors;
     
+    [Header("OTHERS")]
+    [Space(30)]
     [SerializeField] private TMP_Text userConnectedText;
 
 
