@@ -36,6 +36,10 @@ public static class DataBaseManager
 
     public static string ChosenSkill;
 
+    public static string ChosenUserGroup;
+
+    public static string ChosenSkillGroup;
+
     
     
     
