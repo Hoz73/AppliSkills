@@ -10,9 +10,11 @@ public class SupervisorSearchManagerScript : MonoBehaviour
 {
     //[SerializeField] private GameObject userGroupSearchResultsPanel;
     [SerializeField] private GameObject skillGroupSearchResultsPanel;
+    [SerializeField] private GameObject skillSkillGroupSearchResultsPanel;
 
     //[SerializeField] private TMP_InputField userGroupSearchInputField;
     [SerializeField] private TMP_InputField skillGroupSearchInputField;
+    [SerializeField] private TMP_InputField skillSkillGroupSearchInputField;
 
     [SerializeField] private GameObject button;
 
@@ -37,6 +39,11 @@ public class SupervisorSearchManagerScript : MonoBehaviour
     //     StartCoroutine(RegexUserGroup(userGroupSearchResultsPanel, userGroupSearchInputField.text));
     // }
 
+    public void OnEventSearchInputFieldskillSkillGroupInputField()
+    {
+        StartCoroutine(RegexskillSkillGroupInputField(skillSkillGroupSearchResultsPanel, skillSkillGroupSearchInputField.text));
+    }
+
     IEnumerator RegexSkillGroupInputField(GameObject resultPanel, string inputField)
     {
         //TODO : remove this
@@ -48,6 +55,45 @@ public class SupervisorSearchManagerScript : MonoBehaviour
     
         WWW www = new WWW("http://localhost/sql/supervisor/search.php", form);
         yield return www;
+        if (www.text[0] == '0')
+        {
+            var searchResultsList = new List<Tuple<string, GameObject>>();
+            searchResultsList.Clear();
+
+            for (int i = 0; i < resultPanel.transform.childCount; i++)
+            {
+                Destroy(resultPanel.transform.GetChild(i).gameObject);
+            }
+
+            var size = int.Parse(www.text.Split('\t')[1]);
+            for (var i = 2; i < size + 2; i++)
+            {
+                var skillInfo = www.text.Split('\t')[i];
+
+                var go = Instantiate(button, resultPanel.transform);
+                go.GetComponentInChildren<Text>().text = skillInfo;
+                var skillPrefab = new Tuple<string, GameObject>(skillInfo, go);
+                searchResultsList.Add(skillPrefab);
+            }
+        }
+        else
+        {
+            Debug.Log("search skills has failed, error : " + www.text);
+        }
+    }
+
+    IEnumerator RegexskillSkillGroupInputField(GameObject resultPanel, string inputField)
+    {
+        //TODO : remove this
+        DataBaseManager.UserId = "5";
+
+        WWWForm form = new WWWForm();
+        form.AddField("regex", inputField);
+        form.AddField("skillGroupName", DataBaseManager.ChosenSkillGroup);
+    
+        WWW www = new WWW("http://localhost/sql/supervisor/skillSkillGroupSearch.php", form);
+        yield return www;
+        Debug.Log(www.text);
         if (www.text[0] == '0')
         {
             var searchResultsList = new List<Tuple<string, GameObject>>();
@@ -138,9 +184,8 @@ public class SupervisorSearchManagerScript : MonoBehaviour
             {
                 p.SetActive(false);
             }
-            Debug.Log("test");
             BrowseBySkillBySkillGroupPanel.SetActive(true);
-            lookedSkillGroup.text = "Here are the students who have self-validated " + DataBaseManager.ChosenSkillGroup;    
+            lookedSkillGroup.text = "Skills in : "+ DataBaseManager.ChosenSkillGroup;    
         }
     }
 
