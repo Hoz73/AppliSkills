@@ -30,11 +30,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="finished createSkill">
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="Added error panels to login/StudentInterface/AdminInterface">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Button1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Button1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LogIn.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +55,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ClosePanel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -61,15 +67,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/test.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CreateSkillGroup.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkillGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyUserGroup.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ClosePanel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkillGroup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkill.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkill.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
       </list>
     </option>
   </component>
@@ -137,6 +145,12 @@
       <workItem from="1603961288249" duration="23872000" />
       <workItem from="1604047444391" duration="19692000" />
       <workItem from="1604665039190" duration="965000" />
+      <workItem from="1604849442748" duration="6639000" />
+      <workItem from="1605199151812" duration="2792000" />
+      <workItem from="1605279060700" duration="5409000" />
+      <workItem from="1605540572230" duration="2476000" />
+      <workItem from="1605888469485" duration="3454000" />
+      <workItem from="1606050832822" duration="5945000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -250,7 +264,56 @@
       <option name="project" value="LOCAL" />
       <updated>1604426856713</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="created the interface student + search functions">
+      <created>1604681414001</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1604681414001</updated>
+    </task>
+    <task id="LOCAL-00018" summary="created All skills panel + add (groupSkill, skill ) to user from as a student">
+      <created>1604857954622</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1604857954622</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Finished the features for student.">
+      <created>1605284756322</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1605284756322</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added scroll bars in StudentInterface and AdminInterface">
+      <created>1605544361415</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1605544361415</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added Quit icons">
+      <created>1605545616556</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1605545616556</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added photos to buttons">
+      <created>1605801263000</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1605801263000</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added error panels to login/StudentInterface/AdminInterface">
+      <created>1605899744991</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1605899744991</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +351,14 @@
     <MESSAGE value="finished (add/delete) skill (to/from) userGroup" />
     <MESSAGE value="finished modify name (skill/user) group + added toggle to, register panel" />
     <MESSAGE value="finished createSkill" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished createSkill" />
+    <MESSAGE value="created the interface student + search functions" />
+    <MESSAGE value="created All skills panel + add (groupSkill, skill ) to user from as a student" />
+    <MESSAGE value="Finished the features for student." />
+    <MESSAGE value="added scroll bars in StudentInterface and AdminInterface" />
+    <MESSAGE value="added Quit icons" />
+    <MESSAGE value="added photos to buttons" />
+    <MESSAGE value="Added error panels to login/StudentInterface/AdminInterface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added error panels to login/StudentInterface/AdminInterface" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">
@@ -303,12 +373,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603898658833" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1601654221576">
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1605899776720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="289" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599846367874" />
     <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600184178262" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601654221576" />
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605899776720" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1604423135012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

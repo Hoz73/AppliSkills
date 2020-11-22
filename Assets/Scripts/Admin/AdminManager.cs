@@ -31,6 +31,9 @@ public class AdminManager : MonoBehaviour
     [SerializeField] private GameObject editUserGroupPanel;
     [SerializeField] private TMP_InputField searchInputFieldEditSkillGroup;
     [SerializeField] private TMP_InputField searchInputFieldEditUserGroup;
+    [SerializeField] private GameObject searchResultPanelSkillGroup;
+    [SerializeField] private GameObject searchResultPanelUserGroup;
+    
     
     
     // Modify panels
@@ -54,8 +57,16 @@ public class AdminManager : MonoBehaviour
     [Space(30)]
     [SerializeField] private GameObject listOfSupervisors;
     
-    
-   
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text userConnectedText;
+    [SerializeField] private TMP_Text errorText;
+
+
+    void Awake()
+    {
+        userConnectedText.text = "Connected as admin : " + DataBaseManager.UserName;
+    }
     public void BySkillButton()
     {
         adminPanel.SetActive(false);
@@ -108,7 +119,8 @@ public class AdminManager : MonoBehaviour
     
     public void ModifyUserGroup()
     {
-        var searchResultPanel = editUserGroupPanel.transform.GetChild(0).gameObject;
+        int counter = 0;
+        var searchResultPanel = searchResultPanelUserGroup;
         for (var i = 0; i < searchResultPanel.transform.childCount; i++)
         {
             if (searchResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
@@ -116,15 +128,28 @@ public class AdminManager : MonoBehaviour
                 var text = searchResultPanel.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text;
                 var userGroupName = text.Split(' ')[0];
                 DataBaseManager.UserGroupNameToEdit = userGroupName;
+                counter++;
             }
         }
-        editUserGroupPanel.SetActive(false);
-        modifyUserGroupPanel.SetActive(true);
+
+        if (counter ==1 )
+        {
+            editUserGroupPanel.SetActive(false);
+            modifyUserGroupPanel.SetActive(true);
+        }
+        else
+        {
+            errorText.text = "You need to chose (one) UserGroup";
+            errorText.transform.parent.gameObject.SetActive(true);
+        }
+       
+
     }
     
     public void ModifySkillGroup()
     {
-        var searchResultPanel = editSkillGroupPanel.transform.GetChild(0).gameObject;
+        int counter = 0;
+        var searchResultPanel = searchResultPanelSkillGroup;
         for (var i = 0; i < searchResultPanel.transform.childCount; i++)
         {
             if (searchResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
@@ -134,10 +159,21 @@ public class AdminManager : MonoBehaviour
                 var skillGroupName = text;
                 //var skillGroupName = text.Split(' ')[0];
                 DataBaseManager.SkillGroupNameToEdit = skillGroupName;
+                counter++;
             }
         }
-        editSkillGroupPanel.SetActive(false);
-        modifySkillGroupPanel.SetActive(true);
+        
+        if (counter ==1 )
+        {
+            editSkillGroupPanel.SetActive(false);
+            modifySkillGroupPanel.SetActive(true);
+        }
+        else
+        {
+            errorText.text = "You need to chose (one) SkillGroup";
+            errorText.transform.parent.gameObject.SetActive(true);
+        }
+        
     }
 
     public void ReturnToAdminPanel()

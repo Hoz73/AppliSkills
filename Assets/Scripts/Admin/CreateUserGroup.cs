@@ -9,6 +9,9 @@ public class CreateUserGroup : MonoBehaviour
 { 
     [SerializeField] private TMP_InputField nameInputField;
     
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text errorText;
     public void ApplyCreateUserGroup()
     { 
         var buttonPressed = 0;
@@ -31,8 +34,12 @@ public class CreateUserGroup : MonoBehaviour
             }
         }
 
-        if(buttonPressed == 0)
+        if (buttonPressed == 0)
+        {
+            errorText.text = "you need to add some students to your studentGroup";
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("you need to add some students to your studentGroup");
+        }
         else
         {
             for (var i = 0; i < buttonPressed; i++)
@@ -54,9 +61,13 @@ public class CreateUserGroup : MonoBehaviour
         if (www.text == "0")
         {
             Debug.Log("userGroup/student has been created/added successfully");
+            errorText.text = "userGroup/student has been created/added successfully";
+            errorText.transform.parent.gameObject.SetActive(true);
         }
         else
         {
+            errorText.text = "ERROR : " +www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("ERROR : " +www.text);
         }
     }

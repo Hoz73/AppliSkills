@@ -32,6 +32,10 @@ public class LoginManager : MonoBehaviour
     [Space(30)]
     [SerializeField]private GameObject _signUpPanel;
     [SerializeField] private GameObject _signInPanel;
+    
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text errorText;
 
     private bool _teacher;
 
@@ -68,10 +72,15 @@ public class LoginManager : MonoBehaviour
     
     public void InformationToVerifyToSignIn()
     {
-        if(CorrectInformationToSignIn())
+        if (CorrectInformationToSignIn())
             StartCoroutine(LogIn());
         else
-            Debug.Log("the information are not correct");   
+        {
+            errorText.text = "The information is not correct";
+            errorText.transform.parent.gameObject.SetActive(true);
+            Debug.Log("the information are not correct");  
+        }
+             
     }
 
     public void InformationToVerifyToSignUp()
@@ -79,7 +88,12 @@ public class LoginManager : MonoBehaviour
         if (CorrectInformationToSignUp())
             StartCoroutine(Registers());
         else
+        {
+            errorText.text = "The information is not correct";
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("the information are not correct");
+        }
+            
     }
 
     public void ToggleChanged()
@@ -96,29 +110,34 @@ public class LoginManager : MonoBehaviour
         yield return www;
         if(www.text[0] =='0')
         {
-            Debug.Log("Logged in successfully");
             DataBaseManager.UserName = www.text.Split('\t')[1];
             DataBaseManager.Role = www.text.Split('\t')[2];
-            Debug.Log( "welcome "+DataBaseManager.UserName);
-            if(DataBaseManager.Role == "admin")
-                //SceneManager.LoadScene("AdminInterface"); //TODO almost finished (Hamze)
-                Debug.Log("admin");
-            if(DataBaseManager.Role == "teacher")
-                //SceneManager.LoadScene("TeacherInterface"); //TODO not finished yet (Camille)
-                Debug.Log("teacher");
+            DataBaseManager.UserId = www.text.Split('\t')[3];
+            
+            if (DataBaseManager.Role == "admin")
+            {
+                SceneManager.LoadScene("AdminInterface");
+            }
+            else if (DataBaseManager.Role == "teacher")
+            {
+                SceneManager.LoadScene("SupervisorInterface");
+            }
             else
-                //SceneManager.LoadScene("StudentInterface"); //TODO almost finished (Robin)
-                Debug.Log("student");
+            {
+                SceneManager.LoadScene("StudentInterface");
+            }
+                
         }
         else
         {
+            errorText.text = "logging in failed, error : "+ www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("logging in failed, error : "+ www.text);
         }
     }
 
     IEnumerator Registers()
     {
-        Debug.Log(_teacher);
         WWWForm form = new WWWForm();
         form.AddField("firstName",firstName.text);
         form.AddField("lastName",lastName.text);
@@ -136,6 +155,8 @@ public class LoginManager : MonoBehaviour
         }
         else
         {
+            errorText.text = "User creation failed, error :"+ www.text;
+            errorText.transform.parent.gameObject.SetActive(true);
             Debug.Log("User creation failed, error : "+ www.text);
         }
     }
