@@ -8,11 +8,11 @@ using Object = UnityEngine.Object;
 
 public class SupervisorSearchManagerScript : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField searchInputFieldUserGroup;
-    [SerializeField] private TMP_InputField searchInputFieldSkill;
-
     [SerializeField] private GameObject userGroupSearchResultsPanel;
-    [SerializeField] private GameObject skillSearchResultsPanel;
+    [SerializeField] private GameObject skillGroupSearchResultsPanel;
+
+    [SerializeField] private TMP_InputField skillGroupSearchInputField;
+    [SerializeField] private TMP_InputField userGroupSearchInputField;
 
     [SerializeField] private GameObject button;
 
@@ -21,29 +21,33 @@ public class SupervisorSearchManagerScript : MonoBehaviour
     [SerializeField] GameObject[] panels;
 
 
-    public void OnEventSearchInputFieldSkillInputField()
-    {
-        StartCoroutine(RegexSkillInputField(skillSearchResultsPanel, searchInputFieldSkill.text));
-    }
+    //public void OnEventSearchInputFieldSkillInputField()
+    //{
+    //    StartCoroutine(RegexSkillInputField(skillSearchResultsPanel, searchInputFieldSkill.text));
+    //}
 
     public void OnEventSearchInputFieldSkillGroupInputField()
     {
-        StartCoroutine(RegexSkillGroupInputField(skillSearchResultsPanel, searchInputFieldSkill.text));
+        StartCoroutine(RegexSkillGroupInputField(skillGroupSearchResultsPanel, skillGroupSearchInputField.text));
     }
 
     public void OnEventSearchInputFieldUserGroupInputField()
     {
-        StartCoroutine(RegexUserGroup(skillSearchResultsPanel, searchInputFieldSkill.text));
+        StartCoroutine(RegexUserGroup(userGroupSearchResultsPanel, userGroupSearchInputField.text));
     }
 
     IEnumerator RegexSkillGroupInputField(GameObject resultPanel, string inputField)
     {
+
+        DataBaseManager.UserId = "5";
+
         WWWForm form = new WWWForm();
         form.AddField("regex", inputField);
         form.AddField("userID", DataBaseManager.UserId);
-
+    
         WWW www = new WWW("http://localhost/sql/supervisor/search.php", form);
         yield return www;
+        Debug.Log(www.text);
         if (www.text[0] == '0')
         {
             var searchResultsList = new List<Tuple<string, GameObject>>();
@@ -70,47 +74,11 @@ public class SupervisorSearchManagerScript : MonoBehaviour
             Debug.Log("search skills has failed, error : " + www.text);
         }
     }
-
-
-    IEnumerator RegexSkillInputField(GameObject resultPanel, string inputField)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("regex", inputField);
-        form.AddField("table", "skill");
-        form.AddField("field", "skillName");
-
-        WWW www = new WWW("http://localhost/sql/search.php", form);
-        yield return www;
-        if (www.text[0] == '0')
-        {
-            var searchResultsList = new List<Tuple<string, GameObject>>();
-            searchResultsList.Clear();
-            
-            for (int i = 0; i < resultPanel.transform.childCount; i++)
-            {
-                Destroy(resultPanel.transform.GetChild(i).gameObject);
-            }
-
-            var size = int.Parse(www.text.Split('\t')[1]);
-            for (var i = 2; i < size + 2; i++)
-            {
-                var skillInfo = www.text.Split('\t')[i];
-
-                var go = Instantiate(button, resultPanel.transform);
-                go.GetComponentInChildren<Text>().text = skillInfo;
-                var skillPrefab = new Tuple<string, GameObject>(skillInfo, go);
-                searchResultsList.Add(skillPrefab);
-            }
-        }
-        else
-        {
-            Debug.Log("search skills has failed, error : " + www.text);
-        }
-    }
-
 
     IEnumerator RegexUserGroup(GameObject resultPanel, string inputField)
     {
+        DataBaseManager.UserId = "5";
+
         WWWForm form = new WWWForm();
         form.AddField("regex", inputField);
         form.AddField("table", "usergroup");
@@ -163,14 +131,15 @@ public class SupervisorSearchManagerScript : MonoBehaviour
             Debug.Log("invalid action");
             DataBaseManager.ChosenSkill = null;
         }
+        else{
+            //turn off every panel
+            foreach (var p in panels)
+            {
+                p.SetActive(false);
+            }
 
-        //turn off every panel
-        foreach (var p in panels)
-        {
-            p.SetActive(false);
+            BrowseBySkillBySkillGroupPanel.SetActive(true);
         }
-
-        BrowseBySkillBySkillGroupPanel.SetActive(true);
     }
 
     public void PollUserGroup(GameObject panel)
@@ -191,16 +160,19 @@ public class SupervisorSearchManagerScript : MonoBehaviour
         {
             Debug.Log("invalid action");
             DataBaseManager.ChosenSkill = null;
+            //TODO : display a message to user
         }
 
-        //turn off every panel
-        foreach (var p in panels)
-        {
-            p.SetActive(false);
+        else{
+            //turn off every panel
+            foreach (var p in panels)
+            {
+                p.SetActive(false);
+            }
+
+            BrowseByUserByUserGroupPanel.SetActive(true);
+            }            
         }
-
-        BrowseByUserByUserGroupPanel.SetActive(true);
-
 
     }
 }
