@@ -34,7 +34,9 @@ public static class DataBaseManager
         SkillGroupNameToEdit = null;
     }
 
-    
+    public static string ChosenUserGroup;
+
+    public static string ChosenSkillGroup;
     
     
     
