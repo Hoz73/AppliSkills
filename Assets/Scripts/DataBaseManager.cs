@@ -10,7 +10,7 @@ using TMPro;
 using UnityEngine.UI;
 
 
-public static class DataBaseManager
+public static class DataBaseManager 
 {
 
     public static string UserName;
@@ -34,6 +34,7 @@ public static class DataBaseManager
         SkillGroupNameToEdit = null;
     }
 
+    
     
     
     

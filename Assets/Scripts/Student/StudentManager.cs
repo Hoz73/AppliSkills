@@ -41,7 +41,7 @@ public class StudentManager : MonoBehaviour
 
     void Awake()
     {
-        userConnectedText.text = "Connected as : " + DataBaseManager.UserName;
+        userConnectedText.text = "Connected as student : " + DataBaseManager.UserName;
     }
     
     public void SkillGroupPanelActivate()
@@ -58,7 +58,7 @@ public class StudentManager : MonoBehaviour
     
     public void SkillPanelActivate()
     {
-                
+        int counter = 0;       
         for (var i = 0; i < skillGroupResultPanel.transform.childCount; i++)
         {
             if (skillGroupResultPanel.transform.GetChild(i).GetComponent<Image>().color == Color.red)
@@ -66,11 +66,22 @@ public class StudentManager : MonoBehaviour
                 var text = skillGroupResultPanel.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text;
                 var skillGroupName = text.Split(' ')[0];
                 DataBaseManager.SkillGroupNameToEdit = skillGroupName;
+                counter++;
             }
         }
-        Debug.Log(DataBaseManager.SkillGroupNameToEdit);
-        skillPanel.SetActive(true);
-        skillGroupPanel.SetActive(false);
+
+        if (counter == 1)
+        {
+            Debug.Log(DataBaseManager.SkillGroupNameToEdit);
+            skillPanel.SetActive(true);
+            skillGroupPanel.SetActive(false);
+        }
+        else
+        {
+            errorText.text = "You can't chose more than one SkillGroup";
+            errorText.transform.parent.gameObject.SetActive(true);
+        }
+        
     }
     
     public void ReturnToMainPanel()
@@ -143,6 +154,8 @@ public class StudentManager : MonoBehaviour
             if (www.text[0] == '0')
             {
                 Debug.Log("yes !!!!!!");
+                errorText.text = "the skillGroup has been added to the student :" + DataBaseManager.UserId;
+                errorText.transform.parent.gameObject.SetActive(true);
             }
             else
             {

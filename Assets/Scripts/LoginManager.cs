@@ -113,14 +113,20 @@ public class LoginManager : MonoBehaviour
             DataBaseManager.UserName = www.text.Split('\t')[1];
             DataBaseManager.Role = www.text.Split('\t')[2];
             DataBaseManager.UserId = www.text.Split('\t')[3];
-            if(DataBaseManager.Role == "admin")
-                //SceneManager.LoadScene("AdminInterface"); //TODO almost finished (Hamze)
-                Debug.Log("admin");
-            if(DataBaseManager.Role == "teacher")
-                //SceneManager.LoadScene("TeacherInterface"); //TODO not finished yet (Camille)
-                Debug.Log("teacher");
+            
+            if (DataBaseManager.Role == "admin")
+            {
+                SceneManager.LoadScene("AdminInterface");
+            }
+            else if (DataBaseManager.Role == "teacher")
+            {
+                SceneManager.LoadScene("SupervisorInterface");
+            }
             else
-                SceneManager.LoadScene("StudentInterface"); //TODO almost finished (Robin)
+            {
+                SceneManager.LoadScene("StudentInterface");
+            }
+                
         }
         else
         {
