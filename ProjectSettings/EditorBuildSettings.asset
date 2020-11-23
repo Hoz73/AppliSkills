@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AdminInterface.unity
     guid: b9bb17007498c19418b6a9932097f079
+  - enabled: 1
+    path: Assets/Scenes/StudentInterface.unity
+    guid: a45e0deaccd3f1f49b9555709d0580c5
+  - enabled: 1
+    path: Assets/Scenes/SupervisorInterface.unity
+    guid: 65b24d8ed910af34894829155feb0f78
   m_configObjects: {}

@@ -244,6 +244,7 @@ public class StudentManager : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("regex",inputField);
+        form.AddField("UserId", DataBaseManager.UserId);
         form.AddField("skillGroupName", DataBaseManager.SkillGroupNameToEdit);
         
         WWW www = new WWW("http://localhost/sql/student/searchSkill.php", form);
