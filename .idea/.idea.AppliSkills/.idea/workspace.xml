@@ -30,7 +30,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="Added error panels to login/StudentInterface/AdminInterface" />
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="version merged">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PanelText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PanelText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AdminInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StudentInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SupervisorInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SupervisorInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Supervisor/SupervisorSearchManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Supervisor/SupervisorSearchManagerScript.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,9 +53,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hamze/Desktop/AppliSkills/AppliSkills/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ClosePanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hamze/Desktop/AppliSkills/AppliSkills/Assets/Scenes/AdminInterface.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -66,10 +71,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkill.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Supervisor/SupervisorSearchManagerScript.cs" />
       </list>
     </option>
   </component>
@@ -143,6 +149,7 @@
       <workItem from="1605540572230" duration="2476000" />
       <workItem from="1605888469485" duration="3454000" />
       <workItem from="1606050832822" duration="5945000" />
+      <workItem from="1606235893791" duration="1841000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -305,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605899744991</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="version merged">
+      <created>1606065118711</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1606065118711</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +364,8 @@
     <MESSAGE value="added Quit icons" />
     <MESSAGE value="added photos to buttons" />
     <MESSAGE value="Added error panels to login/StudentInterface/AdminInterface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added error panels to login/StudentInterface/AdminInterface" />
+    <MESSAGE value="version merged" />
+    <option name="LAST_COMMIT_MESSAGE" value="version merged" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">
@@ -366,12 +381,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="244" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603898658833" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1605899776720">
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2" timestamp="1606065133053">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="289" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599846367874" />
     <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1600184178262" />
-    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605899776720" />
+    <state x="361" y="191" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606065133053" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1604423135012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

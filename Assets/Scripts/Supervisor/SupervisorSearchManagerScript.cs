@@ -27,12 +27,21 @@ public class SupervisorSearchManagerScript : MonoBehaviour
 
     [SerializeField] private TMP_Text lookedSkillGroup;
     [SerializeField] private TMP_Text lookedSkill;
+    
+    [Header("OTHERS")]
+    [Space(30)]
+    [SerializeField] private TMP_Text errorText;
+    [SerializeField] private TMP_Text userConnectedText;
 
     //public void OnEventSearchInputFieldSkillInputField()
     //{
     //    StartCoroutine(RegexSkillInputField(skillSearchResultsPanel, searchInputFieldSkill.text));
     //}
 
+    void Awake()
+    {
+        userConnectedText.text = "Connected as supervisor: " + DataBaseManager.UserName;
+    }
     public void OnEventSearchInputFieldSkillGroupInputField()
     {
         StartCoroutine(RegexSkillGroupInputField(skillGroupSearchResultsPanel, skillGroupSearchInputField.text));
@@ -180,6 +189,8 @@ public class SupervisorSearchManagerScript : MonoBehaviour
         if (counter != 1)
         {
             Debug.Log("invalid action");
+            errorText.text = "you can't chose more than one skillGroup";
+            errorText.transform.parent.gameObject.SetActive(true);
             DataBaseManager.ChosenSkillGroup = null;
         }
         else{
@@ -209,6 +220,8 @@ public class SupervisorSearchManagerScript : MonoBehaviour
         if (counter != 1)
         {
             Debug.Log("invalid action");
+            errorText.text = "you can't chose more than one Skill";
+            errorText.transform.parent.gameObject.SetActive(true);
             DataBaseManager.ChosenSkillSkillGroup = null;
         }
         else{
@@ -218,7 +231,7 @@ public class SupervisorSearchManagerScript : MonoBehaviour
                 p.SetActive(false);
             }
             BrowseByUserSkillPanel.SetActive(true);
-            lookedSkill.text = "Skills in : "+ DataBaseManager.ChosenSkillSkillGroup;    
+            lookedSkill.text = "Users in : "+ DataBaseManager.ChosenSkillSkillGroup;    
         }
     }
 
@@ -265,11 +278,15 @@ public class SupervisorSearchManagerScript : MonoBehaviour
             yield return www;
             if (www.text[0] == '0')
             {
+                errorText.text = " you have switched user : "+ userName + " " + UserLastName + "  to : " + newState;
+                errorText.transform.parent.gameObject.SetActive(true);
                 Debug.Log(" you have switched user : "+ userName + " " + UserLastName + "  to : " + newState);
                 ClearResultPanels();
             }
             else
             {
+                errorText.text = "error trying to update skill state" + www.text;
+                errorText.transform.parent.gameObject.SetActive(true);
                 Debug.Log("error trying to update skill state" + www.text);
             }
         }
