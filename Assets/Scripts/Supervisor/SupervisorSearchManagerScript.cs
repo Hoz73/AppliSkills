@@ -73,6 +73,7 @@ public class SupervisorSearchManagerScript : MonoBehaviour
         WWW www = new WWW("http://localhost/sql/supervisor/search.php", form);
         yield return www;
         if (www.text[0] == '0')
+            
         {
             var searchResultsList = new List<Tuple<string, GameObject>>();
             searchResultsList.Clear();
