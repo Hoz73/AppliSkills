@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21345,7 +21345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Please add the name of the skill-group you would like to add :'
+  m_text: 'Please add the name of the skill you would like to add :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23074,7 +23074,7 @@ PrefabInstance:
     - target: {fileID: 476303131067818275, guid: 1129fe4e92674f44a92b424e3bf21c3a,
         type: 3}
       propertyPath: m_fontSize
-      value: 14
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 476303131067818275, guid: 1129fe4e92674f44a92b424e3bf21c3a,
         type: 3}
@@ -23085,6 +23085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_enableAutoSizing
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476303131067818275, guid: 1129fe4e92674f44a92b424e3bf21c3a,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 476303131917503361, guid: 1129fe4e92674f44a92b424e3bf21c3a,
         type: 3}
