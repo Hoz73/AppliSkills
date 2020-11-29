@@ -160,6 +160,12 @@ public class LoginManager : MonoBehaviour
             Debug.Log("User creation failed, error : "+ www.text);
         }
     }
+
+    public void back()
+    {
+        _signUpPanel.SetActive(false);
+        _signInPanel.SetActive(true);
+    }
     
     
     
