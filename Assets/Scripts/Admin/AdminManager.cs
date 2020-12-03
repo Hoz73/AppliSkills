@@ -145,7 +145,6 @@ public class AdminManager : MonoBehaviour
        
 
     }
-    
     public void ModifySkillGroup()
     {
         int counter = 0;

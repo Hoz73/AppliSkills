@@ -39,13 +39,15 @@ public static class DataBaseManager
     public static string ChosenSkillGroup;
 
     public static string ChosenSkillSkillGroup;
+
+
+
+
+    /*********************************************************** tha old version of the DataBase with the online server ******************************************************/
     
-    
-    
-    
-    
-    
-    
+    /* [Header("MANAGERS")]
+    [Space(30)]
+    public static LoginManager LoginManager;*/
     // information needed for the connection with the DataBase
     //[Header("THE CONNECTION TO THE DATABASE")]
 
@@ -55,10 +57,9 @@ public static class DataBaseManager
     public string Password;
     public Text State;
     private MySqlConnection connection;*/
-    [Header("MANAGERS")]
-    [Space(30)]
-    public static LoginManager LoginManager;
-
+    
+    /*
+     
     public struct User
     {
         public int ID;
@@ -76,7 +77,8 @@ public static class DataBaseManager
         Supervisor,
         Admin,
     }
-
+    */
+    
     //User ConnectedUser;
 
     //constructor 
@@ -196,7 +198,7 @@ public static class DataBaseManager
         }
     }*/
 
-    /*public List<User> RegexSearch(String regex, string tableName, string fieldName) //TODO Modified and not finished yet (waiting the new server + the final DB)
+    /*public List<User> RegexSearch(String regex, string tableName, string fieldName)
     {
         List<User> results = new List<User>();
         ConnectDB();
@@ -233,7 +235,7 @@ public static class DataBaseManager
                     u.Phone = (int) myRider["Phone"];
                     u.Mail = myRider["mail"].ToString();
                     u.Password = myRider["password"].ToString();
-                    u.Type = (Type) Enum.Parse(typeof(Type), myRider["type"].ToString()); // TODO haven't been tested yet
+                    u.Type = (Type) Enum.Parse(typeof(Type), myRider["type"].ToString());
 
                     results.Add(u);
                     
@@ -281,7 +283,7 @@ public static class DataBaseManager
         return res;
     }*/
 
-    /*public void CreateSkillGroup(int idSupervisor, string tableName) //TODO not tested yet
+    /*public void CreateSkillGroup(int idSupervisor, string tableName)
     {
         String commandInsert = "";
         MySqlCommand cmdInsert = new MySqlCommand(commandInsert, connection);

@@ -48,12 +48,14 @@ public class StudentManager : MonoBehaviour
     {
         skillGroupPanel.SetActive(true);
         mainPanel.SetActive(false);
+        RegexSkillGroup();
     }
 
     public void AllSkillsGroupPanelActivate()
     {
         allSkillGroupPanel.SetActive(true);
         mainPanel.SetActive(false);
+        RegexAllSkillGroup();
     }
     
     public void SkillPanelActivate()
@@ -72,9 +74,9 @@ public class StudentManager : MonoBehaviour
 
         if (counter == 1)
         {
-            Debug.Log(DataBaseManager.SkillGroupNameToEdit);
             skillPanel.SetActive(true);
             skillGroupPanel.SetActive(false);
+            RegexSkill();
         }
         else
         {
@@ -335,11 +337,18 @@ public class StudentManager : MonoBehaviour
             WWW www = new WWW("http://localhost/sql/student/updateSkillState.php", form);
             yield return www;
             if (www.text[0] == '0')
+            {
                 Debug.Log(" you have switch your skill: "+ skillName+ "  to : " + newState);
+            }
+            else
+            {
+                Debug.Log(www.text);
+            }
+                
         }
         else
         {
-            Debug.Log(" you can't invalid a skill validated by the teacher");
+            
             errorText.text = "you can't invalid a skill validated by the teacher" ;
             errorText.transform.parent.gameObject.SetActive(true);
         }

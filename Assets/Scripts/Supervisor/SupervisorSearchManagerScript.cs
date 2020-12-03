@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Object = UnityEngine.Object;
 using UnityEngine.SceneManagement;
 
+
 public class SupervisorSearchManagerScript : MonoBehaviour
 {
     //[SerializeField] private GameObject userGroupSearchResultsPanel;
@@ -32,25 +33,18 @@ public class SupervisorSearchManagerScript : MonoBehaviour
     [Space(30)]
     [SerializeField] private TMP_Text errorText;
     [SerializeField] private TMP_Text userConnectedText;
-
-    //public void OnEventSearchInputFieldSkillInputField()
-    //{
-    //    StartCoroutine(RegexSkillInputField(skillSearchResultsPanel, searchInputFieldSkill.text));
-    //}
+    
 
     void Awake()
     {
         userConnectedText.text = "Connected as supervisor: " + DataBaseManager.UserName;
+        OnEventSearchInputFieldSkillGroupInputField();
     }
     public void OnEventSearchInputFieldSkillGroupInputField()
     {
         StartCoroutine(RegexSkillGroupInputField(skillGroupSearchResultsPanel, skillGroupSearchInputField.text));
     }
-
-    // public void OnEventSearchInputFieldUserGroupInputField()
-    // {
-    //     StartCoroutine(RegexUserGroup(userGroupSearchResultsPanel, userGroupSearchInputField.text));
-    // }
+    
 
     public void OnEventSearchInputFieldskillSkillGroupInputField()
     {
@@ -64,7 +58,6 @@ public class SupervisorSearchManagerScript : MonoBehaviour
 
     IEnumerator RegexSkillGroupInputField(GameObject resultPanel, string inputField)
     {
-        //DataBaseManager.UserId = "5";
 
         WWWForm form = new WWWForm();
         form.AddField("regex", inputField);
@@ -201,7 +194,8 @@ public class SupervisorSearchManagerScript : MonoBehaviour
                 p.SetActive(false);
             }
             BrowseBySkillBySkillGroupPanel.SetActive(true);
-            lookedSkillGroup.text = "Skills in : "+ DataBaseManager.ChosenSkillGroup;    
+            lookedSkillGroup.text = "Skills in : "+ DataBaseManager.ChosenSkillGroup;
+            OnEventSearchInputFieldskillSkillGroupInputField();
         }
     }
 
@@ -232,7 +226,8 @@ public class SupervisorSearchManagerScript : MonoBehaviour
                 p.SetActive(false);
             }
             BrowseByUserSkillPanel.SetActive(true);
-            lookedSkill.text = "Users in : "+ DataBaseManager.ChosenSkillSkillGroup;    
+            lookedSkill.text = "Users in : "+ DataBaseManager.ChosenSkillSkillGroup;
+            OnEventSearchInputFieldUserSkillInputField();
         }
     }
 
@@ -294,8 +289,6 @@ public class SupervisorSearchManagerScript : MonoBehaviour
         else
         {
             Debug.Log("Error validating skill");
-            //errorText.text = "you can't invalid a skill validated by the teacher" ;
-            //errorText.transform.parent.gameObject.SetActive(true);
         }        
     }
 

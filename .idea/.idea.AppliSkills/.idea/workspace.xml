@@ -30,7 +30,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="final version" />
+    <list default="true" id="12073f40-3ca9-4f84-bba9-399eb4ef34fa" name="Default Changelist" comment="commit to pull">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AppliSkills/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SupervisorInterface.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SupervisorInterface.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Supervisor/SupervisorSearchManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Supervisor/SupervisorSearchManagerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Roboto-Black SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Roboto-Black SDF.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,16 +67,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CreateSkillGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyUserGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ClosePanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkillGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateSkill.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/CreateUserGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Admin/ModifyPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LoginManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Student/StudentManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SearchManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Admin/AdminManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Supervisor/SupervisorSearchManagerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataBaseManager.cs" />
       </list>
     </option>
   </component>
@@ -144,6 +152,8 @@
       <workItem from="1606050832822" duration="5945000" />
       <workItem from="1606235893791" duration="1841000" />
       <workItem from="1606395516799" duration="72000" />
+      <workItem from="1606658733706" duration="4072000" />
+      <workItem from="1607000886773" duration="1968000" />
     </task>
     <task id="LOCAL-00001" summary="created the first view of Login">
       <created>1599668091088</created>
@@ -320,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606395560469</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="commit to pull">
+      <created>1606658815841</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1606658815841</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +359,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="created the first view of Login" />
     <MESSAGE value="built the connection with the database on a distant server" />
     <MESSAGE value="Merged the branch login into develop" />
     <MESSAGE value="Created the search input field" />
@@ -367,7 +383,8 @@
     <MESSAGE value="Added error panels to login/StudentInterface/AdminInterface" />
     <MESSAGE value="version merged" />
     <MESSAGE value="final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="final version" />
+    <MESSAGE value="commit to pull" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit to pull" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="361" key="#SQL_Dialects" timestamp="1600177800938">
